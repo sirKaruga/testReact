@@ -1,29 +1,36 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import About from './allroutes/about';
-import More from './allroutes/more';
-import Register from './allroutes/register';
-import Home from './allroutes/home';
-import Topnav from './topnav';
-import store from './store/';
+import About from './pages/about';
+import More from './pages/more';
+import Register from './pages/register';
+import Home from './pages/home';
+import Topnav from './components/topnav';
+import Login from './pages/login'
 
 function App (){
   return (
     <div className="App">
-    <Provider store={ store }>
+
     <Topnav />
 
-    <Router>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/More" component={More} />
-        <Route exact path="/Register" component={Register} />
+      <Router onUpdate={() => window.scrollTo(0, 0)}>
+      <Switch>
+        <Route path="/">
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/More" component={More} />
+            <Route exact path="/Register" component={Register} />
+        </Route>
+        <Route exact path="/login" component={Login} />
+        </Switch>
       </Router>
-      </Provider>
+
+
+
+
+
     </div>
   );
 }

@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Login from './allroutes/login'
+import { Provider } from 'react-redux';
+import store from './store/'
 
 
 ReactDOM.render((
-
-  <Router onUpdate={() => window.scrollTo(0, 0)}>
-    <Route path="/" component={App}>
-    </Route>
-    <Route exact path="/login" component={Login} />
-  </Router>
-
+  <Provider store={ store }>
+  <App />
+  </Provider>
 ),
   document.getElementById('root')
 );
