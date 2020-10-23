@@ -10,4 +10,11 @@ const changeBool = ()=> {
     type: 'SIGN_IN'
   };
 };
-export { increment, changeBool };
+
+const changeText = (myPayload)=> {
+  return{
+    type: 'REGISTER',
+    payload: myPayload
+  };
+};
+export { increment, changeBool, changeText };

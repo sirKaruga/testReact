@@ -1,13 +1,15 @@
 import React from 'react';
 import { useSelector, useDispatch, connect } from 'react-redux';
-import { increment, changeBool } from '../store/actions/';
+import { increment, changeBool, changeText } from '../store/actions/';
 import { Card, Row, Col, Container, Button } from 'react-bootstrap';
 
-const InputForm = (props)=>{
+const InputForm = ()=>{
+  const dispatch = useDispatch();
+  const onChangeM = (e)=> dispatch(changeText(e.target.value));
+
   return(
     <>
-    <input value ={props.myName} onChange={props.inputChanged}/>
-    {props.myName}
+    <input value ={useSelector(state=>state.textValue)} onChange={onChangeM}/>
     </>
   );
 };
@@ -24,11 +26,11 @@ function Register(){
   return(
     <div>
     <Container>
-    <Card>
-    <Card.Title>
-      <h1>Register Component </h1>
-    </Card.Title>
-    </Card>
+      <Card>
+        <Card.Title>
+          <h1>Register Component </h1>
+        </Card.Title>
+      </Card>
       <br />
       <Row>
         <Col sm="7">
@@ -52,22 +54,4 @@ function Register(){
   );
 };
 
-const mapStateToProps = (state)=>{
-  return{
-    myName: state.myName
-  };
-};
-
-const mapDispatchToProps = (dispatch)=>{
-  return{
-    inputChanged:(event)=>{
-      console.log('changed', event.target.value);
-      const action = {type:'REGISTER', text: event.target.value}
-      dispatch(action);
-    }
-  }
-}
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default Register;
