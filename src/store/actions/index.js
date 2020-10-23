@@ -17,4 +17,11 @@ const changeText = (myPayload)=> {
     payload: myPayload
   };
 };
-export { increment, changeBool, changeText };
+
+const fetchedToStore = (myPayload)=> {
+  return{
+    type: 'FETCHED_DATA',
+    payload: myPayload
+  };
+};
+export { increment, changeBool, changeText, fetchedToStore };

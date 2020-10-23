@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import { fetchedToStore } from '../store/actions/'
 
 const About= ()=>{
 
-const [myData, setMydata] = useState({mainsTable: []});
 const dispatch = useDispatch();
 
 useEffect(()=>{
   const fetchData = async () => {
     const result = await axios('http://localhost:9000/',);
-    setMydata({object1:result.data});
+    const myData = result.data;
+    dispatch(fetchedToStore(myData));
   };
   fetchData();
 }, []);
 
-
-useEffect(()=>{
-  const updStore = ()=>{dispatch({type: 'FETCHED_DATA', payload: myData})};
-  updStore();
-}, []);
 
   return(
     <>

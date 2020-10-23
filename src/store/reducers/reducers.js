@@ -1,5 +1,5 @@
 const initialStat =  {
-  textValue: 'cspital',
+  textValue: 'Value',
   booleanValue: false,
   intValue: 1,
   fetchedData: []
