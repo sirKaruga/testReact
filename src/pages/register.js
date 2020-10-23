@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch, connect } from 'react-redux';
 import { increment, changeBool } from '../store/actions/';
-import { Card, Row, Col, Container } from 'react-bootstrap';
+import { Card, Row, Col, Container, Button } from 'react-bootstrap';
 
 const InputForm = (props)=>{
   return(
@@ -17,16 +17,23 @@ function Register(){
   const name = useSelector(state=>state.textValue);
   const isLogged = useSelector(state=>state.booleanValue);
   const dispatch = useDispatch();
+  const handleClick =  ()=>dispatch(increment());
+  const changeBoolean =  ()=>dispatch(changeBool());
+
 
   return(
     <div>
     <Container>
+    <Card>
+    <Card.Title>
       <h1>Register Component </h1>
+    </Card.Title>
+    </Card>
       <br />
       <Row>
         <Col sm="7">
-          <button onClick={()=>dispatch(increment())}>Change integer</button><br /><br />
-          <button onClick={()=>dispatch(changeBool())}>Change Boolean Value</button><br /><br />
+          <Button onClick={handleClick}>Change integer</Button><br /><br />
+          <Button onClick={changeBoolean}>Change Boolean Value</Button><br /><br />
           <InputForm />
         </Col>
           <Col sm="5">

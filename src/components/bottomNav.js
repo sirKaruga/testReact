@@ -1,8 +1,8 @@
 import React from 'react';
-import { Navbar, Row, Col, Container } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import  './nav.css';
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
-import App from '../App';
+import { NavLink } from 'react-router-dom';
+
 
 const bottomNav = ()=>{
   return(
@@ -12,8 +12,8 @@ const bottomNav = ()=>{
     <Row>
       <Col md="3" sm="6">
         <h5 className="links">Contacts</h5>
-        <ul><a className="links" href="#">e-mail: tonnydennis443@gmail.com</a></ul>
-        <ul><a href="#">Contact: +254733 345 6780</a></ul>
+        <ul><a className="links" href="google.com">e-mail: tonnydennis443@gmail.com</a></ul>
+        <ul><a href="google.com">Contact: +254733 345 6780</a></ul>
       </Col>
       <Col md="3" sm="6">
         <h5 className="links">Pages</h5>
@@ -25,7 +25,7 @@ const bottomNav = ()=>{
 
       <Col md="3" sm="6">
         <h5 className="links">About</h5>
-        <ul><a href="#">Its nice being here</a></ul>
+        <ul><a href="google.com">Its nice being here</a></ul>
       </Col>
 
     </Row>
