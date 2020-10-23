@@ -1,0 +1,12 @@
+.bottomNav{
+background-color: #000;
+overflow: hidden;
+bottom: 0;
+width: 100vw;
+
+}
+
+.links{
+  text-decoration: none;
+  color: #fff;
+}

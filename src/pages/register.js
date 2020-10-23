@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch, connect } from 'react-redux';
 import { increment, changeBool } from '../store/actions/';
 import { Card, Row, Col, Container } from 'react-bootstrap';
-import store from '../store';
 
 const InputForm = (props)=>{
   return(
@@ -28,7 +27,7 @@ function Register(){
         <Col sm="7">
           <button onClick={()=>dispatch(increment())}>Change integer</button><br /><br />
           <button onClick={()=>dispatch(changeBool())}>Change Boolean Value</button><br /><br />
-          <InputForm store={store}/>
+          <InputForm />
         </Col>
           <Col sm="5">
             <Card>

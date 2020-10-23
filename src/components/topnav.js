@@ -1,11 +1,9 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-//import { BrowserRouter, Route, Navlink } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const Topnav = ()=>{
   return(
-    <Container>
+    <div>
     <Navbar bg="light">
       <Navbar.Brand href="#">MyHome</Navbar.Brand>
       <Nav className="mr-auto">
@@ -15,7 +13,8 @@ const Topnav = ()=>{
       <Nav.Link href="/more">More</Nav.Link>
       </Nav>
     </Navbar>
-    </Container>
+      <hr/>
+    </div>
   );
 }
  export default Topnav;

@@ -7,33 +7,28 @@ const initialStat =  {
 const counterReducer = (state = initialStat, action) =>{
   switch (action.type) {
     case 'INCREMENT': {
-      state.intValue = state.intValue + action.payload;
-      state = {...state, state};
-      return state;
+      let newState = Object.assign({}, state, {intValue: state.intValue + action.payload});
+      return newState;
       }
 
     case 'DECREMENT':{
-      state.intValue = state.intValue - action.payload;
-      state = {...state, state};
-      return state;
+      let newState = Object.assign({}, state, {intValue: state.intValue - action.payload});
+      return newState;
       }
 
       case 'SIGN_IN':{
-        state.booleanValue = !state.booleanValue;
-        state = {...state, state};
-        return state;
+        let newState = Object.assign({}, state, {booleanValue: !state.booleanValue});
+        return newState;
       }
 
       case 'REGISTER':{
-        state.textValue = action.payload;
-        state = {...state, state}
-        return state;
+        let newState = Object.assign({}, state, {textValue: action.payload});
+        return newState;
       }
 
       case 'FETCHED_DATA':{
-        state.fetchedData = action.payload;
-        state = {...state, state}
-        return state;
+        let newState = Object.assign({}, state, {fetchedData: action.payload});
+        return newState;
 }
 
     default:
