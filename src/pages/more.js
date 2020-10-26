@@ -1,11 +1,12 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 import Ip from '../pictures/fig1.jpg';
-import { Card, Row, Col} from 'react-bootstrap';
+import naturePic from '../pictures/nature1.png';
+import { Card, Row, Col } from 'react-bootstrap';
 
 const More= ()=>{
   return(
-    <>
+    <div style={{background:"rgba(0,0,0,0.8)"}}>
   <Row>
     <Col>
       <Card>
@@ -48,6 +49,40 @@ const More= ()=>{
     </Col>
   </Row>
 {/* end of carousel*/ }
+<br/>
+<Row style={{background:"rgba(0,0,0,0.8)"}}>
+  <Col md="6" sm="6" >
+    <img style={{maxWidth:"50vw", minWidth:"50vw"}} alt="nature item"  className="d-block" src={naturePic}/>
+  </Col>
+  <Col md="6" sm="6">
+    <Card style={{background:"wheat", height:"inherit"}}>
+      <Card.Title style={{background:"rgba(0,0,0,0.8)", color:"#fff"}}>
+        Awsomeness of Nature
+      </Card.Title>
+      <Card.Body>
+        Nature is Natural
+      </Card.Body>
+      <Card.Body style={{background:"rgba(0,0,0,0.8)", color:"#fff"}}>
+        Awsomeness of Nature
+      </Card.Body>
+      <Card.Body style={{background:"rgba(0,0,0,0.9)", color:"#fff"}}>
+        <div>the destructive nature of nature is non-existent</div>
+        <div>bares the life for both living and nonliving</div>
+        <div>bares the life for both living and nonliving</div>
+      </Card.Body>
+      <Card.Body style={{background:"rgba(0,0,0,0.8)", color:"#fff"}}>
+        Awsomeness of Nature
+        <div>bares the life for both living and nonliving</div>
+        <div>bares the life for both living and nonliving</div>
+      </Card.Body>
+    </Card>
+  </Col>
+</Row>
+<br/>
+{/* end of moddle section*/ }
+
+
+
   <Row  style={{background:"rgba(0,0,0,0.6)"}}>
     <Col md="4" sm="6">
       <Card style={{background:"rgba(0,0,0,0.8)", color:"white"}}>
@@ -57,8 +92,8 @@ const More= ()=>{
             <p>A good title</p>
           </Card.Title>
           <Card.Text>
-          <p>This is a sample item. <br/>description of something goes here</p>
-          <p>This is a sample item. <br/>description of something goes here</p>
+          This is a sample item. <br/>description of something goes here
+          This is a sample item. <br/>description of something goes here
           </Card.Text>
         </Card.Body>
 
@@ -72,8 +107,8 @@ const More= ()=>{
             <p>A good title</p>
           </Card.Title>
           <Card.Text>
-          <p>This is a sample item. <br/>description of something goes here</p>
-          <p>This is a sample item. <br/>description of something goes here</p>
+          This is a sample item. <br/>description of something goes here
+          This is a sample item. <br/>description of something goes here
           </Card.Text>
         </Card.Body>
       </Card>
@@ -86,15 +121,14 @@ const More= ()=>{
             <p>A good title</p>
           </Card.Title>
           <Card.Text>
-          <p>This is a sample item. <br/>description of something goes here</p>
-          <p>This is a sample item. <br/>description of something goes here</p>
+          This is a sample item. <br/>description of something goes here. This is a sample item. <br/>description of something goes here
           </Card.Text>
         </Card.Body>
       </Card>
     </Col>
   </Row><br/>
 
-    </>
+    </div>
   );
 }
 

@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { fetchedToStore } from '../store/actions/'
+import { useSelector } from 'react-redux';
 
 const About= ()=>{
-
-const dispatch = useDispatch();
-
+const datab= useSelector((state)=>state);
+console.log(datab);
 useEffect(()=>{
   const fetchData = async () => {
     const result = await axios('http://localhost:9000/',);
     const myData = result.data;
-    dispatch(fetchedToStore(myData));
+
   };
   fetchData();
 }, []);

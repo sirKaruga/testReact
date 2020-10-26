@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch, connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { increment, changeBool, changeText } from '../store/actions/';
 import { Card, Row, Col, Container, Button } from 'react-bootstrap';
 
@@ -21,17 +21,17 @@ function Register(){
   const dispatch = useDispatch();
   const handleClick =  ()=>dispatch(increment());
   const changeBoolean =  ()=>dispatch(changeBool());
-
+console.log(mycount);
 
   return(
     <div>
-    <Container>
+    <Container style={{minHeight:"70vh"}}>
       <Card>
         <Card.Title>
           <h1>Register Component </h1>
         </Card.Title>
       </Card>
-      <br />
+      <br /><br /><br />
       <Row>
         <Col sm="7">
           <Button onClick={handleClick}>Change integer</Button><br /><br />

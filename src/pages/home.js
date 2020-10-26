@@ -3,7 +3,7 @@ import { Card, Row, Col, Container } from 'react-bootstrap';
 
 export default function Home(){
   return(
-    <Container >
+    <Container style={{minHeight:"70vh"}}>
         <Row>
           <Col>
             <h1>Welcome Home</h1>
