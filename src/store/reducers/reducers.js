@@ -1,41 +1,51 @@
-const initialStat =  {
-  textValue: 'Value',
+const initialStat = {
+  textValue: "Value",
   booleanValue: false,
   intValue: 1,
-  fetchedData: []
+  fetchedData: [],
+  cart: [],
 };
-const counterReducer = (state = initialStat, action) =>{
+const counterReducer = (state = initialStat, action) => {
   switch (action.type) {
-    case 'INCREMENT': {
-      let newState = Object.assign({}, state, {intValue: state.intValue + action.payload});
+    case "INCREMENT": {
+      let newState = Object.assign({}, state, {
+        intValue: state.intValue + action.payload,
+      });
       return newState;
-      }
+    }
 
-    case 'DECREMENT':{
-      let newState = Object.assign({}, state, {intValue: state.intValue - action.payload});
+    case "DECREMENT": {
+      let newState = Object.assign({}, state, {
+        intValue: state.intValue - action.payload,
+      });
       return newState;
-      }
+    }
 
-      case 'SIGN_IN':{
-        let newState = Object.assign({}, state, {booleanValue: !state.booleanValue});
-        return newState;
-      }
+    case "SIGN_IN": {
+      let newState = Object.assign({}, state, {
+        booleanValue: !state.booleanValue,
+      });
+      return newState;
+    }
 
-      case 'REGISTER':{
-        let newState = Object.assign({}, state, {textValue: action.payload});
-        return newState;
-      }
+    case "REGISTER": {
+      let newState = Object.assign({}, state, { textValue: action.payload });
+      return newState;
+    }
 
-      case 'FETCHED_DATA':{
-        let newState = Object.assign({}, state, {fetchedData: action.payload});
-        return newState;
-}
+    case "FETCHED_DATA": {
+      let newState = Object.assign({}, state, { fetchedData: action.payload });
+      return newState;
+    }
+
+    case "ADD_CART": {
+      let newState = Object.assign({}, state, { cart: action.payload });
+      return newState;
+    }
 
     default:
-    return state;
-
+      return state;
   }
 };
-
 
 export default counterReducer;

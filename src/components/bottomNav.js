@@ -1,14 +1,14 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container, Card } from 'react-bootstrap';
 import  './nav.css';
 import { NavLink } from 'react-router-dom';
 
 
 const bottomNav = ()=>{
   return(
-<>
-
-  <div className="bottomNav">
+<Container style={{overflow:"hidden"}}>
+<Card style={{background:"black", padding:0, margin:0}}>
+<Card.Body>
     <Row>
       <Col md="3" sm="6">
         <h5 className="links">Contacts</h5>
@@ -26,14 +26,14 @@ const bottomNav = ()=>{
       <Col md="3" sm="6">
         <h5 className="links">About</h5>
         <ul><a href="google.com">Its nice being here</a></ul>
+        <ul><NavLink activeStyle={{color:"red"}} className="links" to="/shop/buy">my Shop</NavLink></ul>
       </Col>
 
     </Row>
 
-
-  </div>
-
-</>
+    </Card.Body>
+</Card>
+</ Container>
   );
 }
 

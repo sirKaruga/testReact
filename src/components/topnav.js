@@ -1,9 +1,9 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const Topnav = ()=>{
   return(
-    <div>
+    <Container>
     <Navbar bg="light">
       <Navbar.Brand href="#">MyHome</Navbar.Brand>
       <Nav className="mr-auto">
@@ -14,7 +14,7 @@ const Topnav = ()=>{
       </Nav>
     </Navbar>
       <hr/>
-    </div>
+    </Container>
   );
 }
  export default Topnav;
