@@ -4,7 +4,7 @@ import { Card, Row, Col, Button, Carousel } from "react-bootstrap";
 import naturePic from "../images/shoe.webp";
 import Item from "../components/item";
 
-export default function rowStyle3() {
+function rowStyle3() {
   return (
     <Row>
       <Col md="12" sm="12" xsm="12">
@@ -94,3 +94,5 @@ export default function rowStyle3() {
     </Row>
   );
 }
+
+export default rowStyle3;

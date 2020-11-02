@@ -3,7 +3,7 @@ import { Card, Row, Col } from "react-bootstrap";
 import Item from "../components/item";
 import myObject from "../components/object";
 
-export default function rowStyle2() {
+function rowStyle2(props) {
   return (
     <Row style={{ overflow: "hidden" }}>
       <Col md="4" sm="12">
@@ -12,6 +12,7 @@ export default function rowStyle2() {
           <Row>
             <Col sm="6" md="6" xsm="6">
               <Item
+                dispatcher={props}
                 itemName="my Item name"
                 price="3000"
                 itemPicture={require("../images/tv1.jpg")}
@@ -79,3 +80,5 @@ export default function rowStyle2() {
     </Row>
   );
 }
+
+export default rowStyle2;

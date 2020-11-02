@@ -5,7 +5,7 @@ import Item from "../components/item";
 import tv1 from "../images/tv1.jpg";
 import tv2 from "../images/tv2.jpg";
 
-export default function rowStyle1() {
+function rowStyle1() {
   return (
     <Row>
       <Col md="12" sm="12" xsm="12">
@@ -173,3 +173,5 @@ export default function rowStyle1() {
     </Row>
   );
 }
+
+export default rowStyle1;

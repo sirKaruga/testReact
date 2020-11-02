@@ -1,13 +1,12 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../store/actions/";
+import dispatcher from "./selector";
 
 function item(props) {
   function handleBuyClick() {
-    console.log(props);
+    dispatcher("thi");
   }
-  console.log(props);
 
   return (
     <Card
@@ -30,7 +29,7 @@ function item(props) {
           <b>Ksh. {props.price}/=</b>
           <br />
         </Card.Text>
-        <Button onClick={handleBuyClick} variant="primary">
+        <Button onClick={dispatcher("hfgj")} variant="primary">
           Buy
         </Button>
       </Card.Body>
