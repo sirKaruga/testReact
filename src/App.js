@@ -10,12 +10,11 @@ import Topnav from "./components/topnav";
 import Login from "./pages/login";
 import BottomNav from "./components/bottomNav";
 import MyShop from "./pages/sampleShop";
+import dashboard from "./pages/dashboard/";
 
 function App() {
   return (
     <div className="App">
-      <Topnav />
-
       <Router onUpdate={() => window.scrollTo(0, 0)}>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -26,8 +25,11 @@ function App() {
           <Route path="/shop">
             <Route exact path="/shop/buy" component={MyShop}></Route>
           </Route>
+
+          <Route path="/dashboard">
+            <Route exact path="/dashboard/" component={dashboard}></Route>
+          </Route>
         </Switch>
-        <BottomNav />
       </Router>
     </div>
   );

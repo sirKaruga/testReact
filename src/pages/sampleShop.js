@@ -9,7 +9,6 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchedToStore } from "../store/actions/";
 import { addToCart } from "../store/actions/";
-import dispatcher from "../components/selector";
 
 function MyShop() {
   const mdata = useSelector((state) => state.fetchedData);

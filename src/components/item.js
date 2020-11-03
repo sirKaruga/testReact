@@ -1,13 +1,8 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import dispatcher from "./selector";
 
 function item(props) {
-  function handleBuyClick() {
-    dispatcher("thi");
-  }
-
   return (
     <Card
       style={{
@@ -29,9 +24,7 @@ function item(props) {
           <b>Ksh. {props.price}/=</b>
           <br />
         </Card.Text>
-        <Button onClick={dispatcher("hfgj")} variant="primary">
-          Buy
-        </Button>
+        <Button variant="primary">Buy</Button>
       </Card.Body>
     </Card>
   );

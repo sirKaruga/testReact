@@ -18,9 +18,6 @@ function rowStyle2(props) {
                 itemPicture={require("../images/tv1.jpg")}
               />
             </Col>
-            {myObject[0].map((item) => {
-              return <li key={item.opr}>item.idindex</li>;
-            })}
 
             <Col sm="6" md="6" xsm="6">
               <Item
