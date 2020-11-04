@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { connect } from "react-redux";
 
 function item(props) {
   return (
@@ -30,4 +30,10 @@ function item(props) {
   );
 }
 
-export default item;
+function mapStateToProps(props) {
+  return {
+    returnedItem: props,
+  };
+}
+
+export default connect(mapStateToProps)(item);

@@ -1,9 +1,12 @@
+import myObject from "../../components/object";
+
 const initialStat = {
   textValue: "Value",
   booleanValue: false,
   intValue: 1,
   fetchedData: [],
   cart: [],
+  shopItems: myObject,
 };
 const counterReducer = (state = initialStat, action) => {
   switch (action.type) {

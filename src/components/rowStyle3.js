@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, Row, Col, Button, Carousel } from "react-bootstrap";
-
+import { connect } from "react-redux";
 import naturePic from "../images/shoe.webp";
 import Item from "../components/item";
 
-function rowStyle3() {
+function rowStyle3(props) {
   return (
     <Row>
       <Col md="12" sm="12" xsm="12">
@@ -59,33 +59,37 @@ function rowStyle3() {
 
             <Col md="2" sm="6" xsm="6">
               <Item
-                itemName="my Item name"
-                price="3000"
-                itemPicture={require("../images/tv1.jpg")}
+                id={props.returnedItem.shopItems[1].idindex}
+                itemName={props.returnedItem.shopItems[1].itemname}
+                price={props.returnedItem.shopItems[1].price}
+                itemPicture={props.returnedItem.shopItems[1].itempics}
               />
             </Col>
 
             <Col md="2" sm="6" xsm="6">
               <Item
-                itemName="my Item name"
-                price="3000"
-                itemPicture={require("../images/tv1.jpg")}
+                id={props.returnedItem.shopItems[0].idindex}
+                itemName={props.returnedItem.shopItems[0].itemname}
+                price={props.returnedItem.shopItems[0].price}
+                itemPicture={props.returnedItem.shopItems[0].itempics}
               />
             </Col>
 
             <Col md="2" sm="6" xsm="6">
               <Item
-                itemName="my Item name"
-                price="3000"
-                itemPicture={require("../images/tv1.jpg")}
+                id={props.returnedItem.shopItems[1].idindex}
+                itemName={props.returnedItem.shopItems[1].itemname}
+                price={props.returnedItem.shopItems[1].price}
+                itemPicture={props.returnedItem.shopItems[1].itempics}
               />
             </Col>
 
             <Col md="2" sm="6" xsm="6">
               <Item
-                itemName="my Item name"
-                price="3000"
-                itemPicture={require("../images/tv1.jpg")}
+                id={props.returnedItem.shopItems[0].idindex}
+                itemName={props.returnedItem.shopItems[0].itemname}
+                price={props.returnedItem.shopItems[0].price}
+                itemPicture={props.returnedItem.shopItems[0].itempics}
               />
             </Col>
           </Row>
@@ -95,4 +99,10 @@ function rowStyle3() {
   );
 }
 
-export default rowStyle3;
+function mapStateToProps(props) {
+  return {
+    returnedItem: props,
+  };
+}
+
+export default connect(mapStateToProps)(rowStyle3);
