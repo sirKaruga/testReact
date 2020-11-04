@@ -3,7 +3,7 @@ import { Card, Row, Col, Nav } from "react-bootstrap";
 import * as Icons from "react-bootstrap-icons";
 import DashboardNavbar from "./dashboardNavbar";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
-import LineChartExample from "./chart";
+import Example from "./chart";
 
 function dashboard() {
   return (
@@ -146,7 +146,7 @@ function dashboard() {
             }}
           >
             <Card.Body>
-              <LineChartExample />
+              <Example />
             </Card.Body>
           </Card>
         </Col>
