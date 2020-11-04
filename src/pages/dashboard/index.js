@@ -3,6 +3,7 @@ import { Card, Row, Col, Nav } from "react-bootstrap";
 import * as Icons from "react-bootstrap-icons";
 import DashboardNavbar from "./dashboardNavbar";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import LineChartExample from "./chart";
 
 function dashboard() {
   return (
@@ -127,7 +128,7 @@ function dashboard() {
                     >
                       <Icons.Flag />
                       &nbsp;
-                      <b>Media-N</b>
+                      <b>Media-Na</b>
                     </NavLink>
                   </Nav>
                 </Router>
@@ -144,7 +145,9 @@ function dashboard() {
               color: "white",
             }}
           >
-            <Card.Body>something</Card.Body>
+            <Card.Body>
+              <LineChartExample />
+            </Card.Body>
           </Card>
         </Col>
       </Row>
