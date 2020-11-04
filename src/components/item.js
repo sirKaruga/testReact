@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { addToCart } from "../store/actions/";
 
 function item(props) {
-  props.addToCart(props.id);
-
+  const handleClick = () => {
+    props.addToCart(props.id);
+  };
   console.log(props);
   return (
     <Card
@@ -28,7 +29,9 @@ function item(props) {
           <b>Ksh. {props.price}/=</b>
           <br />
         </Card.Text>
-        <Button variant="primary">Buy</Button>
+        <Button onClick={handleClick} variant="primary">
+          Buy
+        </Button>
       </Card.Body>
     </Card>
   );
