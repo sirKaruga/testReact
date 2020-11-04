@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { connect } from "react-redux";
+import { addToCart } from "../store/actions/";
 
 function item(props) {
+  console.log(props.addToCart);
   return (
     <Card
       style={{
@@ -36,4 +38,12 @@ function mapStateToProps(props) {
   };
 }
 
-export default connect(mapStateToProps)(item);
+function mapDispatchToProps(dispatch) {
+  return {
+    addToCart: (props) => {
+      dispatch(addToCart(props));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(item);

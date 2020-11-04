@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Line as LineChart } from "react-chartjs";
 
 function chartData() {

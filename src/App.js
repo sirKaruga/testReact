@@ -6,9 +6,7 @@ import About from "./pages/about";
 import More from "./pages/more";
 import Register from "./pages/register";
 import Home from "./pages/home";
-import Topnav from "./components/topnav";
 import Login from "./pages/login";
-import BottomNav from "./components/bottomNav";
 import MyShop from "./pages/sampleShop";
 import dashboard from "./pages/dashboard/";
 

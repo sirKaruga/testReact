@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Button, Carousel } from "react-bootstrap";
+import { Card, Row, Col, Carousel } from "react-bootstrap";
 import { connect } from "react-redux";
 import naturePic from "../images/shoe.webp";
 import Item from "../components/item";
