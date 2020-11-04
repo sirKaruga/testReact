@@ -8,20 +8,21 @@ function rowStyle3(props) {
   return (
     <Row>
       <Col md="12" sm="12" xsm="12">
-        <Card>
-          <Row>
-            <Col md="4" sm="12" xsm="12">
+        <Card style={{ minHeight: "inhetit" }}>
+          <Row style={{ minHeight: "inhetit" }}>
+            <Col style={{ objectFit: "cover" }} md="4" sm="12" xsm="12">
               <Card
                 style={{
                   background: "blue",
                   color: "white",
-                  height: "matchParent",
+                  objectFit: "cover",
                 }}
               >
                 <Card.Title>Fashion and Dressing</Card.Title>
                 <Carousel>
                   <Carousel.Item interval={1000}>
                     <img
+                      style={{ objectFit: "cover" }}
                       className="d-block w-100"
                       src={naturePic}
                       alt="First slide"

@@ -42,7 +42,9 @@ const counterReducer = (state = initialStat, action) => {
     }
 
     case "ADD_CART": {
-      let newState = Object.assign({}, state, { cart: action.payload });
+      let newState = Object.assign({}, state, {
+        cart: state.cart.concat(action.payload),
+      });
       return newState;
     }
 

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addToCart } from "../store/actions/";
 
 function item(props) {
-  console.log(props.addToCart);
+  props.addToCart(props.id);
+
+  console.log(props);
   return (
     <Card
       style={{
