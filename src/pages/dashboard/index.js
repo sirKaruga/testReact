@@ -8,8 +8,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import Example from "./chart";
-import DashboardPages from "./dashboardPages";
+import Home from "./dashboardPages/homePage";
 
 function dashboard() {
   return (
@@ -44,7 +43,7 @@ function dashboard() {
                     <NavLink
                       activeStyle={{ color: "#cc1738" }}
                       style={{ color: "#8C0073", padding: "0.5em" }}
-                      to="/tryi"
+                      to="/home"
                     >
                       <Icons.Table />
                       &nbsp;
@@ -149,7 +148,10 @@ function dashboard() {
               }}
             >
               <Card.Body>
-                <DashboardPages />
+                <Switch>
+                  <Route path="/dashboard" component={Home} />
+                  <Route path="/home" component={Home} />
+                </Switch>
               </Card.Body>
             </Card>
           </Col>

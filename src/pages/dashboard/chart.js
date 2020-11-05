@@ -29,7 +29,7 @@ for (let i = 0; i < 2; i++) {
   data.push({ color: i, key: i, data: series, opacity: 0.8 });
 }
 
-export default function Example() {
+export default function Chart() {
   return (
     <Card style={{ background: "rgba(0,0,0,0.5)" }}>
       <XYPlot
