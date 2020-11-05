@@ -2,8 +2,14 @@ import React from "react";
 import { Card, Row, Col, Nav } from "react-bootstrap";
 import * as Icons from "react-bootstrap-icons";
 import DashboardNavbar from "./dashboardNavbar";
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  NavLink,
+  Route,
+  Switch,
+} from "react-router-dom";
 import Example from "./chart";
+import DashboardPages from "./dashboardPages";
 
 function dashboard() {
   return (
@@ -15,30 +21,30 @@ function dashboard() {
         overflow: "hidden",
       }}
     >
-      <DashboardNavbar />
-      <Row>
-        <Col xsm="12" sm="12" md="3" lg="3">
-          <Card
-            style={{
-              background: "rgba(0,0,0,0.5)",
-              minHeight: "99vh",
-              color: "white",
-            }}
-          >
-            <br />
-            <Card>
-              <Card.Title
-                style={{ background: "rgba(0,0,0,0.5)", paddingTop: "0.5em" }}
-              >
-                My Components
-              </Card.Title>
-              <Card.Body style={{ background: "rgba(0,0,0,0.5)" }}>
-                <Router>
+      <Router>
+        <DashboardNavbar />
+        <Row>
+          <Col xsm="12" sm="12" md="3" lg="3">
+            <Card
+              style={{
+                background: "rgba(0,0,0,0.5)",
+                minHeight: "99vh",
+                color: "white",
+              }}
+            >
+              <br />
+              <Card>
+                <Card.Title
+                  style={{ background: "rgba(0,0,0,0.5)", paddingTop: "0.5em" }}
+                >
+                  My Components
+                </Card.Title>
+                <Card.Body style={{ background: "rgba(0,0,0,0.5)" }}>
                   <Nav defaultActiveKey="/home" className="flex-column">
                     <NavLink
                       activeStyle={{ color: "#cc1738" }}
                       style={{ color: "#8C0073", padding: "0.5em" }}
-                      to="/myShop"
+                      to="/tryi"
                     >
                       <Icons.Table />
                       &nbsp;
@@ -76,19 +82,17 @@ function dashboard() {
                       <b>Products</b>
                     </NavLink>
                   </Nav>
-                </Router>
-              </Card.Body>
-            </Card>
-            <br />
+                </Card.Body>
+              </Card>
+              <br />
 
-            <Card>
-              <Card.Title
-                style={{ background: "rgba(0,0,0,0.5)", paddingTop: "0.5em" }}
-              >
-                My Pages
-              </Card.Title>
-              <Card.Body style={{ background: "rgba(0,0,0,0.5)" }}>
-                <Router>
+              <Card>
+                <Card.Title
+                  style={{ background: "rgba(0,0,0,0.5)", paddingTop: "0.5em" }}
+                >
+                  My Pages
+                </Card.Title>
+                <Card.Body style={{ background: "rgba(0,0,0,0.5)" }}>
                   <Nav defaultActiveKey="/home" className="flex-column">
                     <NavLink
                       activeStyle={{ color: "#cc1738" }}
@@ -131,26 +135,26 @@ function dashboard() {
                       <b>Media-Na</b>
                     </NavLink>
                   </Nav>
-                </Router>
+                </Card.Body>
+              </Card>
+            </Card>
+          </Col>
+
+          <Col xsm="12" sm="12" md="9" lg="9">
+            <Card
+              style={{
+                background: "rgba(0,0,0,0.3)",
+                minHeight: "100vh",
+                color: "white",
+              }}
+            >
+              <Card.Body>
+                <DashboardPages />
               </Card.Body>
             </Card>
-          </Card>
-        </Col>
-
-        <Col xsm="12" sm="12" md="9" lg="9">
-          <Card
-            style={{
-              background: "rgba(0,0,0,0.3)",
-              minHeight: "100vh",
-              color: "white",
-            }}
-          >
-            <Card.Body>
-              <Example />
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </Router>
     </div>
   );
 }

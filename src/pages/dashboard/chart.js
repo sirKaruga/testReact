@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 
 import {
   XYPlot,
@@ -30,20 +31,22 @@ for (let i = 0; i < 2; i++) {
 
 export default function Example() {
   return (
-    <XYPlot
-      width={300}
-      height={300}
-      colorType="linear"
-      colorDomain={[0, 9]}
-      colorRange={["yellow", "orange"]}
-    >
-      <HorizontalGridLines />
-      <VerticalGridLines />
-      <XAxis />
-      <YAxis />
-      {data.map((props) => (
-        <LineSeries {...props} />
-      ))}
-    </XYPlot>
+    <Card style={{ background: "rgba(0,0,0,0.5)" }}>
+      <XYPlot
+        width={300}
+        height={300}
+        colorType="linear"
+        colorDomain={[0, 9]}
+        colorRange={["yellow", "orange"]}
+      >
+        <HorizontalGridLines />
+        <VerticalGridLines />
+        <XAxis />
+        <YAxis />
+        {data.map((props) => (
+          <LineSeries {...props} />
+        ))}
+      </XYPlot>
+    </Card>
   );
 }
