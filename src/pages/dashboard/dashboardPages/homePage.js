@@ -59,7 +59,7 @@ function home() {
           <Example />
         </Col>
         <Col sm="12" md="6">
-          Return Rate
+          Return
           <Example />
         </Col>
       </Row>
