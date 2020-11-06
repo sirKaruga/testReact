@@ -11,6 +11,11 @@ const initialStat = {
   shopItems: myObject,
   lineChartData: LineChartData,
   barChartData: BarChartData,
+  loginData: {
+    email: "",
+    pass: "",
+    loggedIn: false,
+  },
 };
 const counterReducer = (state = initialStat, action) => {
   switch (action.type) {
@@ -49,6 +54,17 @@ const counterReducer = (state = initialStat, action) => {
       let newState = Object.assign({}, state, {
         cart: state.cart.concat(action.payload),
       });
+      return newState;
+    }
+
+    case "LOG_IN": {
+      let newState = {};
+      if (
+        action.payload.loginData.email != "" &&
+        action.payload.loginData.pass != ""
+      ) {
+        newState = Object.assign({}, state, { [loginData.loggedIn]: true });
+      }
       return newState;
     }
 

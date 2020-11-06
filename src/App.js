@@ -9,6 +9,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import MyShop from "./pages/sampleShop";
 import dashboard from "./pages/dashboard/";
+import DashLogin from "./pages/loginSyatem";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
 
           <Route path="/dashboard">
             <Route exact path="/dashboard/" component={dashboard}></Route>
+            <Route exact path="/dashboard/login" component={DashLogin}></Route>
           </Route>
         </Switch>
       </Router>

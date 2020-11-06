@@ -32,4 +32,11 @@ const addToCart = (myPayload) => {
   };
 };
 
-export { increment, changeBool, changeText, fetchedToStore, addToCart };
+const logins = (myPayload) => {
+  return {
+    type: "LOG_IN",
+    payload: myPayload,
+  };
+};
+
+export { increment, changeBool, changeText, fetchedToStore, addToCart, logins };
