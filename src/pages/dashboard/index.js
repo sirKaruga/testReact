@@ -63,7 +63,7 @@ function dashboard() {
                       activeStyle={{ color: "#cc1738" }}
                       style={{ color: "#8C0073", padding: "0.5em" }}
                       to="/myShop"
-                      eventKey="link-2"
+                      eventkey="link-2"
                     >
                       <Icons.Calendar />
                       &nbsp;
@@ -73,7 +73,7 @@ function dashboard() {
                       activeStyle={{ color: "#cc1738" }}
                       style={{ color: "#8C0073", padding: "0.5em" }}
                       to="/myShop"
-                      eventKey="disabled"
+                      eventkey="disabled"
                       disabled
                     >
                       <Icons.Cup />
@@ -106,7 +106,7 @@ function dashboard() {
                       activeStyle={{ color: "#cc1738" }}
                       style={{ color: "#8C0073", padding: "0.5em" }}
                       to="/myShop"
-                      eventKey="link-1"
+                      eventkey="link-1"
                     >
                       <Icons.Code />
                       &nbsp;
@@ -116,7 +116,7 @@ function dashboard() {
                       activeStyle={{ color: "#cc1738" }}
                       style={{ color: "#8C0073", padding: "0.5em" }}
                       to="/myShop"
-                      eventKey="link-2"
+                      eventkey="link-2"
                     >
                       <Icons.Calendar />
                       &nbsp;
@@ -126,7 +126,7 @@ function dashboard() {
                       activeStyle={{ color: "#cc1738" }}
                       style={{ color: "#8C0073", padding: "0.5em" }}
                       to="/myShop"
-                      eventKey="disabled"
+                      eventkey="disabled"
                       disabled
                     >
                       <Icons.Flag />

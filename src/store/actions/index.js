@@ -31,4 +31,5 @@ const addToCart = (myPayload) => {
     payload: myPayload,
   };
 };
+
 export { increment, changeBool, changeText, fetchedToStore, addToCart };

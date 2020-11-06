@@ -1,4 +1,6 @@
 import myObject from "../../components/object";
+import LineChartData from "../../pages/dashboard/dashboardPages/lineChartData";
+import BarChartData from "../../pages/dashboard/dashboardPages/barChartData";
 
 const initialStat = {
   textValue: "Value",
@@ -7,6 +9,8 @@ const initialStat = {
   fetchedData: [],
   cart: [],
   shopItems: myObject,
+  lineChartData: LineChartData,
+  barChartData: BarChartData,
 };
 const counterReducer = (state = initialStat, action) => {
   switch (action.type) {
