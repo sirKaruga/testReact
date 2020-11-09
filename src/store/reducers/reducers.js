@@ -59,12 +59,7 @@ const counterReducer = (state = initialStat, action) => {
 
     case "LOG_IN": {
       let newState = {};
-      if (
-        action.payload.loginData.email != "" &&
-        action.payload.loginData.pass != ""
-      ) {
-        newState = Object.assign({}, state, { [loginData.loggedIn]: true });
-      }
+      console.log(action.payload);
       return newState;
     }
 

@@ -4,16 +4,40 @@ import { Redirect } from "react-router-dom";
 import { Card, Row, Col, Form, Button } from "react-bootstrap";
 import Avartar from "../../images/avt.jpg";
 import { logins } from "../../store/actions/";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-function login(props) {
-  const [inputValues, setInputValues] = useState({ email: "", pass: "" });
-  const onClickHandler = () => {
-    props.myDispatch(inputValues);
+function useInput(initialValue) {
+  const [value, setValue] = useState(initialValue);
+
+  const reset = (initialValue) => {
+    setValue(initialValue);
   };
-  const onChangeHandler = (e) => {
-    setInputValues({ ...inputValues, [e.target.name]: e.target.value });
+
+  const bind = {
+    value,
+    onChange: (e) => {
+      setValue(e.target.value);
+    },
   };
+
+  return [value, bind, reset];
+}
+
+function useLogin() {
+  const [email, bindEmail, resetEmail] = useInput("");
+  const [pass, bindPass, resetPass] = useInput("");
+
+  const dispatch = useDispatch();
+  const myData = useSelector((state) => state);
+  console.log(myData);
+
+  const onClickHandler = (e) => {
+    e.preventDefault();
+    dispatch(logins({ email: email, pass: pass }));
+    resetPass();
+    resetEmail();
+  };
+
   return (
     <div className="App">
       <Row>
@@ -43,9 +67,8 @@ function login(props) {
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
                       name="email"
-                      value={inputValues.email}
                       type="email"
-                      onChnge={onChangeHandler}
+                      {...bindEmail}
                       placeholder="Enter email"
                     />
                   </Form.Group>
@@ -54,9 +77,8 @@ function login(props) {
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                       name="pass"
-                      value={inputValues.pass}
                       type="password"
-                      onChnge={onChangeHandler}
+                      {...bindPass}
                       placeholder="Password"
                     />
                   </Form.Group>
@@ -79,20 +101,4 @@ function login(props) {
   );
 }
 
-function mapStateToProps(props) {
-  return {
-    loggedIn: props.loginData.loggedIn,
-    email: props.loginData.email,
-    pass: props.loginData.pass,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    myDispatch: (payload) => {
-      dispatch(logins(payload));
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(login);
+export default useLogin;
