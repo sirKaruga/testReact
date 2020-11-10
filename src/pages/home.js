@@ -1,38 +1,31 @@
-import React from 'react';
-import { Card, Row, Col, Container } from 'react-bootstrap';
+import React from "react";
+import { Container } from "react-bootstrap";
+import RowStyle1 from "../components/rowStyle1";
+import RowStyle2 from "../components/rowStyle2";
+import RowStyle3 from "../components/rowStyle3";
+import { Cart } from "react-bootstrap-icons";
+import Topnav from "../components/topnav";
+import TopCarouselRow from "../components/topCarouselRow ";
 
-export default function Home(){
-  return(
-    <Container style={{minHeight:"70vh"}}>
-        <Row>
-          <Col>
-            <h1>Welcome Home</h1>
-          </Col>
-        </Row>
-        <br/>
-        <Row>
-          <Col sm="12" md="6">
-            <Card>
-            <h3>App Contents</h3>
-            <ul>five routes</ul>
-            <ul>global state</ul>
-            <ul>Simple styling</ul>
-            <ul>a few more things</ul>
-            </Card>
-          </Col>
-          <Col sm="12" md="6">
-            <h3>Navigation</h3>
-            <ul>Home</ul>
-            <ul>about</ul>
-            <ul>Register</ul>
-            <ul>More</ul>
-          </Col>
-        </Row>
-        <br/>
-        <Row>
-        <Col><p>Thank you for your time</p></Col>
-        </Row>
-        </Container>
-
+export default function Home() {
+  return (
+    <div
+      style={{
+        minHeight: "50vh",
+        overflow: "hidden",
+        marginLeft: "1em",
+        marginRight: "1em",
+      }}
+    >
+      <Topnav />
+      <Cart>length</Cart>
+      <TopCarouselRow />
+      <RowStyle2 />
+      <br />
+      <RowStyle3 />
+      <br />
+      <RowStyle1 />
+      <br />
+    </div>
   );
 }
