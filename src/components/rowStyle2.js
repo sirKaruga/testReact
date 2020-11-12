@@ -8,7 +8,7 @@ function rowStyle2(props) {
 
   return (
     <Row style={{ overflow: "hidden" }}>
-      <Col md="4" sm="12">
+      <Col md="4" sm="12" xsm="12">
         <Card>
           <Card.Title>Fashioon and Dressing</Card.Title>
           <Row>
@@ -57,7 +57,7 @@ function rowStyle2(props) {
         </Card>
       </Col>
 
-      <Col md="4" sm="12">
+      <Col md="4" sm="12" xsm="12">
         <Card>
           <Card.Title>Fashioon and Dressing</Card.Title>
           <Row>
