@@ -5,6 +5,7 @@ import RowStyle2 from "../components/rowStyle2";
 import RowStyle3 from "../components/rowStyle3";
 import Topnav from "../components/topnav";
 import TopCarouselRow from "../components/topCarouselRow ";
+import BottomNav from "../components/bottomNav";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <br />
       <RowStyle1 />
       <br />
+      <BottomNav />
     </div>
   );
 }

@@ -9,7 +9,7 @@ function item(props) {
   };
   console.log(props);
   return (
-    <Card
+    <div
       style={{
         marginLeft: 0,
         marginRight: 0,
@@ -18,7 +18,7 @@ function item(props) {
       }}
     >
       <Card.Img
-        style={{ minHeight: "7em", maxHeight: "7em" }}
+        style={{ minHeight: "7em", maxHeight: "7em", marginTop: "2em" }}
         variant="top"
         src={props.itemPicture}
       />
@@ -33,7 +33,7 @@ function item(props) {
           Buy
         </Button>
       </Card.Body>
-    </Card>
+    </div>
   );
 }
 

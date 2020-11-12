@@ -10,7 +10,7 @@ function rowStyle2(props) {
     <Row style={{ overflow: "hidden" }}>
       <Col md="4" sm="12" xsm="12">
         <Card>
-          <Card.Title>Fashioon and Dressing</Card.Title>
+          <Card.Header>Fashioon and Dressing</Card.Header>
           <Row>
             <Col sm="6" md="6" xsm="6">
               <Item

@@ -9,7 +9,14 @@ function rowStyle1(props) {
     <Row>
       <Col md="12" sm="12" xsm="12">
         <Card>
-          <Card.Title>Fashioon and Dressing</Card.Title>
+          <Card.Header
+            style={{ background: "red", color: "white", fontSize: "1.3em" }}
+          >
+            <Row>
+              <Col style={{ textAlign: "left" }}>Fashion and Dressing</Col>
+              <Col style={{ textAlign: "right" }}>More...</Col>
+            </Row>
+          </Card.Header>
           <Row>
             <Col md="2" sm="6" xsm="6">
               <Item
