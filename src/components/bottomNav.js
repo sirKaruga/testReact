@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const bottomNav = () => {
   return (
-    <div style={{ overflow: "hidden", fontSize: "1.2em" }}>
+    <div style={{ overflow: "hidden", fontSize: "1em" }}>
       <Card
         style={{
           background: "rgba(0,0,0,0.4)",
@@ -86,9 +86,7 @@ const bottomNav = () => {
             </Col>
           </Row>
           <Row style={{ background: "rgba(0,0,0,0.5)" }}>
-            <Col style={{ color: "white" }}>
-              Designed and Developed by sir Karuga
-            </Col>
+            <Col style={{ color: "white" }}>© sir Karuga Works</Col>
           </Row>
         </Card.Body>
       </Card>

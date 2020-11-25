@@ -1,3 +1,56 @@
+@media only screen and (max-width: 1332px) {
+  .hd1 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1237px) {
+  .hd2 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1176px) {
+  .hd3 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1097px) {
+  .hd4 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1270px) {
+  .hd5 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 969px) {
+  .hd6 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 885px) {
+  .hd7 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 851px) {
+  .hd8 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 850.999999999px) {
+  .hd9 {
+    display: none;
+  }
+}
 
 .App {
   text-align: center;

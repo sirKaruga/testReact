@@ -10,11 +10,15 @@ function rowStyle1(props) {
       <Col md="12" sm="12" xsm="12">
         <Card>
           <Card.Header
-            style={{ background: "red", color: "white", fontSize: "1.3em" }}
+            style={{ background: "red", color: "white", fontSize: "1em" }}
           >
             <Row>
-              <Col style={{ textAlign: "left" }}>Fashion and Dressing</Col>
-              <Col style={{ textAlign: "right" }}>More...</Col>
+              <Col style={{ textAlign: "left" }}>
+                <b>Fashion and Dressing</b>
+              </Col>
+              <Col style={{ textAlign: "right" }}>
+                <b>More...</b>
+              </Col>
             </Row>
           </Card.Header>
           <Row>

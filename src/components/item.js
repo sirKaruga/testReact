@@ -7,18 +7,23 @@ function item(props) {
   const handleClick = () => {
     props.addToCart(props.id);
   };
-  console.log(props);
+
   return (
     <div
       style={{
-        marginLeft: 0,
-        marginRight: 0,
         paddingLeft: 0,
         paddingRight: 0,
+        minWidth: "105px",
       }}
     >
       <Card.Img
-        style={{ minHeight: "7em", maxHeight: "7em", marginTop: "2em" }}
+        style={{
+          paddingLeft: 0,
+          paddingRight: 0,
+          minHeight: "7em",
+          maxHeight: "7em",
+          marginTop: "2em",
+        }}
         variant="top"
         src={props.itemPicture}
       />

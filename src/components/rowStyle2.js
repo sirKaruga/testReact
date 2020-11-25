@@ -8,12 +8,17 @@ function rowStyle2(props) {
 
   return (
     <Row style={{ overflow: "hidden" }}>
-      <Col md="4" sm="12" xsm="12">
-        <Card>
-          <Card.Header>Fashioon and Dressing</Card.Header>
+      <Col style={{ paddingRight: 0 }} md="4" sm="4" xsm="4">
+        <Card style={{ paddingLeft: 0, paddingRight: 0 }}>
           <Row>
-            <Col sm="6" md="6" xsm="6">
+            <Col
+              style={{ paddingLeft: 0, paddingRight: 0 }}
+              sm="6"
+              md="6"
+              xsm="6"
+            >
               <Item
+                style={{ paddingLeft: 0, paddingRight: 0 }}
                 id={props.returnedItem.shopItems[0].idindex}
                 itemName={props.returnedItem.shopItems[0].itemname}
                 price={props.returnedItem.shopItems[0].price}
@@ -21,8 +26,14 @@ function rowStyle2(props) {
               />
             </Col>
 
-            <Col sm="6" md="6" xsm="6">
+            <Col
+              style={{ paddingLeft: 0, paddingRight: 0 }}
+              sm="6"
+              md="6"
+              xsm="6"
+            >
               <Item
+                style={{ paddingLeft: 0, paddingRight: 0 }}
                 id={props.returnedItem.shopItems[1].idindex}
                 itemName={props.returnedItem.shopItems[1].itemname}
                 price={props.returnedItem.shopItems[1].price}
@@ -32,12 +43,17 @@ function rowStyle2(props) {
           </Row>
         </Card>
       </Col>
-      <Col md="4" sm="12">
-        <Card>
-          <Card.Title>Fashioon and Dressing</Card.Title>
+      <Col style={{ paddingLeft: "1px", paddingRight: "1px" }} md="4" sm="4">
+        <Card style={{ paddingLeft: 0, paddingRight: 0 }}>
           <Row>
-            <Col sm="6" md="6" xsm="6">
+            <Col
+              style={{ paddingLeft: 0, paddingRight: 0 }}
+              sm="6"
+              md="6"
+              xsm="6"
+            >
               <Item
+                style={{ paddingRight: 0 }}
                 id={props.returnedItem.shopItems[0].idindex}
                 itemName={props.returnedItem.shopItems[0].itemname}
                 price={props.returnedItem.shopItems[0].price}
@@ -45,8 +61,14 @@ function rowStyle2(props) {
               />
             </Col>
 
-            <Col sm="6" md="6" xsm="6">
+            <Col
+              style={{ paddingLeft: 0, paddingRight: 0 }}
+              sm="6"
+              md="6"
+              xsm="6"
+            >
               <Item
+                style={{ paddingLeft: 0 }}
                 id={props.returnedItem.shopItems[1].idindex}
                 itemName={props.returnedItem.shopItems[1].itemname}
                 price={props.returnedItem.shopItems[1].price}
@@ -55,14 +77,20 @@ function rowStyle2(props) {
             </Col>
           </Row>
         </Card>
+        Simply the best
       </Col>
 
-      <Col md="4" sm="12" xsm="12">
-        <Card>
-          <Card.Title>Fashioon and Dressing</Card.Title>
+      <Col style={{ paddingLeft: 0 }} md="4" sm="4" xsm="4">
+        <Card style={{ paddingLeft: 0, paddingRight: 0 }}>
           <Row>
-            <Col sm="6" md="6" xsm="6">
+            <Col
+              style={{ paddingLeft: 0, paddingRight: 0 }}
+              sm="6"
+              md="6"
+              xsm="6"
+            >
               <Item
+                style={{ paddingLeft: 0, paddingRight: 0 }}
                 id={props.returnedItem.shopItems[0].idindex}
                 itemName={props.returnedItem.shopItems[0].itemname}
                 price={props.returnedItem.shopItems[0].price}
@@ -70,8 +98,14 @@ function rowStyle2(props) {
               />
             </Col>
 
-            <Col sm="6" md="6" xsm="6">
+            <Col
+              style={{ paddingLeft: 0, paddingRight: 0 }}
+              sm="6"
+              md="6"
+              xsm="6"
+            >
               <Item
+                style={{ paddingLeft: 0, paddingRight: 0 }}
                 id={props.returnedItem.shopItems[1].idindex}
                 itemName={props.returnedItem.shopItems[1].itemname}
                 price={props.returnedItem.shopItems[1].price}

@@ -30,7 +30,7 @@ export default function topCarouselRow() {
         <Col sm="12" md="3">
           <Card>
             <div
-              style={{ fontSize: "1.2em", marginLeft: "1.5em" }}
+              style={{ fontSize: "1em", marginLeft: "1.5em" }}
               className="mr-auto"
             >
               <p>
@@ -75,19 +75,19 @@ export default function topCarouselRow() {
                 </i>
                 Top Selling
               </p>
-              <p>
+              <p className="hd4">
                 <i>
                   <Heart />
                 </i>
                 Top Selling
               </p>
-              <p>
+              <p className="hd2">
                 <i>
                   <Globe />
                 </i>
                 Top Selling
               </p>
-              <p>
+              <p className="hd1">
                 <i>
                   <Truck />
                 </i>
@@ -99,7 +99,7 @@ export default function topCarouselRow() {
 
         <Col sm="12" md="6">
           <Card>
-            <Carousel>
+            <Carousel style={{ height: "5em" }}>
               <Carousel.Item interval={500}>
                 <img className="d-block w-100" src={mytv} alt="Third slide" />
                 <Carousel.Caption>
@@ -148,7 +148,7 @@ export default function topCarouselRow() {
                   Original
                   <br />
                 </b>
-                Filtered Products
+                <span>Filtered Products</span>
               </p>
               <p>
                 <b>
@@ -168,19 +168,19 @@ export default function topCarouselRow() {
                   Promotions
                   <br />
                 </b>
-                Exciting Offers
+                <span className="hd6">Exciting Offers</span>
               </p>
               <p>
-                <b>
+                <b className="hd4">
                   <i>
                     <FaGift style={{ fontSize: "25px", color: "#FF6600" }} />
                   </i>
                   Gift Hampers
                   <br />
                 </b>
-                Thousand Gifts
+                <span className="hd3">Thousand Gifts</span>
               </p>
-              <p>
+              <p className="hd2 hd5">
                 <b>
                   <i>
                     <FaGoogleWallet
@@ -190,7 +190,7 @@ export default function topCarouselRow() {
                   Process
                   <br />
                 </b>
-                Easy Return
+                <span className="hd1">Easy Return</span>
               </p>
               <p>
                 <b>
