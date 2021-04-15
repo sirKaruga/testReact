@@ -8,22 +8,20 @@ export default function Home() {
         className="hd8"
         style={{
           minHeight: "50vh",
-          overflow: "hidden",
           marginLeft: "5em",
           marginRight: "5em",
         }}
       >
-        <Body />
+        <Body style={{ minWidth: "1000px", display: "inlineBlock" }} />
       </div>
 
       <div
         className="hd9"
         style={{
           minHeight: "50vh",
-          overflow: "hidden",
         }}
       >
-        <Body />
+        <Body style={{ minWidth: "1000px", display: "inlineBlock" }} />
       </div>
     </>
   );

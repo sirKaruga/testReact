@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Container, Card } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import "./nav.css";
 import { NavLink } from "react-router-dom";
 
@@ -19,13 +19,14 @@ const bottomNav = () => {
               <h5 style={{ color: "black" }} className="links">
                 Contacts
               </h5>
+              sales@wasilisha.com
               <ul>
-                <a className="links" href="google.com">
-                  e-mail: sales@wasilisha.com
+                <a style={{ color: "purple" }} href="google.com">
+                  +254708453589
                 </a>
-              </ul>
-              <ul>
-                <a href="google.com">Contact: +254708453589</a>
+                <a style={{ color: "purple" }} href="google.com">
+                  Or: +254753338225
+                </a>
               </ul>
             </Col>
             <Col md="3" sm="6">
@@ -33,16 +34,12 @@ const bottomNav = () => {
                 Pages
               </h5>
               <ul>
-                <NavLink
-                  activeStyle={{ color: "red" }}
-                  className="links"
-                  to="/"
-                >
+                <NavLink style={{ color: "purple" }} className="links" to="/">
                   Home
                 </NavLink>
                 <br />
                 <NavLink
-                  activeStyle={{ color: "red" }}
+                  style={{ color: "purple" }}
                   className="links"
                   to="/more"
                 >
@@ -50,7 +47,7 @@ const bottomNav = () => {
                 </NavLink>
                 <br />
                 <NavLink
-                  activeStyle={{ color: "red" }}
+                  style={{ color: "purple" }}
                   className="links"
                   to="/register"
                 >
@@ -58,7 +55,7 @@ const bottomNav = () => {
                 </NavLink>
                 <br />
                 <NavLink
-                  activeStyle={{ color: "red" }}
+                  style={{ color: "purple" }}
                   className="links"
                   to="/about"
                 >
@@ -72,7 +69,9 @@ const bottomNav = () => {
                 About
               </h5>
               <ul>
-                <a href="google.com">Its nice being here</a>
+                <a style={{ color: "purple" }} href="google.com">
+                  Sell here
+                </a>
               </ul>
               <ul>
                 <NavLink

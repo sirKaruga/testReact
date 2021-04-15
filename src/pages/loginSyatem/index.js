@@ -1,6 +1,5 @@
-import React, { useState, Component } from "react";
+import React, { useState } from "react";
 import "../../App.css";
-import { Redirect } from "react-router-dom";
 import { Card, Row, Col, Form, Button } from "react-bootstrap";
 import Avartar from "../../images/avt.jpg";
 import { logins } from "../../store/actions/";

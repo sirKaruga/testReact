@@ -17,10 +17,6 @@ import {
   FaGift,
   FaGoogleWallet,
   FaCartArrowDown,
-  FaShippingFast,
-  FaMobileAlt,
-  FaSearchDollar,
-  FaMoneyBillWave,
 } from "react-icons/fa";
 
 export default function topCarouselRow() {
@@ -102,36 +98,12 @@ export default function topCarouselRow() {
             <Carousel style={{ height: "5em" }}>
               <Carousel.Item interval={500}>
                 <img className="d-block w-100" src={mytv} alt="Third slide" />
-                <Carousel.Caption>
-                  <div style={{ background: "rgba(0,0,0,0.7)" }}>
-                    <h3>First slide label</h3>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </div>
-                </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item interval={500}>
                 <img className="d-block w-100" src={mytv} alt="Third slide" />
-                <Carousel.Caption>
-                  <div style={{ background: "rgba(0,0,0,0.7)" }}>
-                    <h3>sec slide label</h3>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </div>
-                </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img className="d-block w-100" src={mytv} alt="Third slide" />
-                <Carousel.Caption>
-                  <div style={{ background: "rgba(0,0,0,0.7)" }}>
-                    <h3>First slide label</h3>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </div>
-                </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
           </Card>

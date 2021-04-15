@@ -12,25 +12,25 @@ function item(props) {
         minWidth: "105px",
       }}
     >
-      <Card.Img
-        style={{
-          paddingLeft: 0,
-          paddingRight: 0,
-          minHeight: "7em",
-          maxHeight: "7em",
-          marginTop: "2em",
-        }}
-        variant="top"
-        src={props.itemPicture}
-      />
-      <Card.Body>
-        <Card.Text>
-          <span>{props.itemName.slice(0, 6) + "..."}</span>
-          <br />
-          <b>ksh. {props.price}/=</b>
-          <br />
-        </Card.Text>
-      </Card.Body>
+      <a style={{ color: "black", textDecoration: "none" }} href="/about:johns">
+        <Card.Img
+          style={{
+            paddingLeft: 0,
+            paddingRight: 0,
+            minHeight: "7em",
+            maxHeight: "7em",
+            marginTop: "2em",
+            maxWidth: "7em",
+          }}
+          variant="top"
+          src={props.itemPicture}
+        />
+        <Card.Body>
+          <Card.Text>
+            <span>{props.itemName}</span>
+          </Card.Text>
+        </Card.Body>
+      </a>
     </div>
   );
 }
