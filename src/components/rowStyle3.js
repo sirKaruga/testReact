@@ -2,8 +2,27 @@ import React from "react";
 import { Card, Row, Col, Carousel } from "react-bootstrap";
 import { connect } from "react-redux";
 import Item from "../components/item";
+import windowSize from "../components/windowSize";
 
 function rowStyle3(props) {
+  const cwindow = windowSize().width;
+  var display = "inline";
+  var display2 = "inline";
+  var display3 = "inline";
+
+  function between(x, min, max) {
+    return x >= min && x <= max;
+  }
+  if (between(cwindow, 0, 1387)) {
+    display = "none";
+  }
+  if (between(cwindow, 0, 1225)) {
+    display2 = "none";
+  }
+  if (between(cwindow, 0, 774)) {
+    display3 = "none";
+  }
+
   return (
     <Row>
       <Col md="12" sm="12" xsm="12">
@@ -21,52 +40,7 @@ function rowStyle3(props) {
             </Row>
           </Card.Header>
           <Row style={{ minHeight: "inhetit" }}>
-            <Col style={{ objectFit: "cover" }} md="2" sm="6" xsm="6">
-              <div
-                style={{
-                  color: "white",
-                  objectFit: "cover",
-                }}
-              >
-                <Carousel style={{ color: "black" }}>
-                  <Carousel.Item interval={1000}>
-                    <Item
-                      id={props.returnedItem.shopItems[1].idindex}
-                      itemName={props.returnedItem.shopItems[1].itemname}
-                      price={props.returnedItem.shopItems[1].price}
-                      itemPicture={props.returnedItem.shopItems[1].itempics}
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item interval={500}>
-                    <Item
-                      id={props.returnedItem.shopItems[0].idindex}
-                      itemName={props.returnedItem.shopItems[0].itemname}
-                      price={props.returnedItem.shopItems[0].price}
-                      itemPicture={props.returnedItem.shopItems[0].itempics}
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <Item
-                      id={props.returnedItem.shopItems[1].idindex}
-                      itemName={props.returnedItem.shopItems[1].itemname}
-                      price={props.returnedItem.shopItems[1].price}
-                      itemPicture={props.returnedItem.shopItems[1].itempics}
-                    />
-                  </Carousel.Item>
-                </Carousel>
-              </div>
-            </Col>
-
-            <Col md="2" sm="6" xsm="6">
-              <Item
-                id={props.returnedItem.shopItems[1].idindex}
-                itemName={props.returnedItem.shopItems[1].itemname}
-                price={props.returnedItem.shopItems[1].price}
-                itemPicture={props.returnedItem.shopItems[1].itempics}
-              />
-            </Col>
-
-            <Col md="2" sm="6" xsm="6">
+            <Col vsm="2">
               <Item
                 id={props.returnedItem.shopItems[0].idindex}
                 itemName={props.returnedItem.shopItems[0].itemname}
@@ -75,16 +49,7 @@ function rowStyle3(props) {
               />
             </Col>
 
-            <Col md="2" sm="6" xsm="6">
-              <Item
-                id={props.returnedItem.shopItems[0].idindex}
-                itemName={props.returnedItem.shopItems[0].itemname}
-                price={props.returnedItem.shopItems[0].price}
-                itemPicture={props.returnedItem.shopItems[0].itempics}
-              />
-            </Col>
-
-            <Col md="2" sm="6" xsm="6">
+            <Col vsm="2">
               <Item
                 id={props.returnedItem.shopItems[1].idindex}
                 itemName={props.returnedItem.shopItems[1].itemname}
@@ -93,7 +58,34 @@ function rowStyle3(props) {
               />
             </Col>
 
-            <Col md="2" sm="6" xsm="6">
+            <Col vsm="2">
+              <Item
+                id={props.returnedItem.shopItems[0].idindex}
+                itemName={props.returnedItem.shopItems[0].itemname}
+                price={props.returnedItem.shopItems[0].price}
+                itemPicture={props.returnedItem.shopItems[0].itempics}
+              />
+            </Col>
+
+            <Col vsm="2">
+              <Item
+                id={props.returnedItem.shopItems[0].idindex}
+                itemName={props.returnedItem.shopItems[0].itemname}
+                price={props.returnedItem.shopItems[0].price}
+                itemPicture={props.returnedItem.shopItems[0].itempics}
+              />
+            </Col>
+
+            <Col style={{ display: display2 }} vsm="2">
+              <Item
+                id={props.returnedItem.shopItems[1].idindex}
+                itemName={props.returnedItem.shopItems[1].itemname}
+                price={props.returnedItem.shopItems[1].price}
+                itemPicture={props.returnedItem.shopItems[1].itempics}
+              />
+            </Col>
+
+            <Col style={{ display: display }} vsm="2">
               <Item
                 id={props.returnedItem.shopItems[0].idindex}
                 itemName={props.returnedItem.shopItems[0].itemname}

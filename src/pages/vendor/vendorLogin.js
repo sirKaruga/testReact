@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Card, Button, Form, InputGroup, FormControl } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import axios from "axios";
 
-const Login = () => {
+const useVendorLogin = () => {
   const [inputs, setInputs] = useState({
     user: "",
     password: "",
   });
+  const [err, seterr] = useState(false);
 
   const onChange = (e) => {
     e.preventDefault();
@@ -19,19 +21,42 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs);
+    axios({
+      method: "post",
+      withCredentials: true,
+      data: inputs,
+      url: "http://localhost:9000/vendorlogin",
+    }).then((res) => {
+      if (res.data.message === "success") {
+        sessionStorage.setItem("wasilishaVendor", inputs.user.toString());
+        seterr(true);
+      } else {
+        alert(
+          "Phone and/or password you entered does not match any of our records"
+        );
+      }
+    });
   };
+
+  if (err === true) {
+    return <Redirect to="/vendor/home" />;
+  }
   return (
     <div className="d-flex justify-content-center" style={{ float: "center" }}>
-      <Card style={{ width: "28rem" }}>
+      <Card style={{ width: "28rem", backgroundColor: "beige" }}>
         <Card.Body>
-          <Card.Title>
-            <img
-              style={{ height: 50 }}
-              src={require("../images/avt.jpg")}
-              alt="avarter"
-            />
-            Log In
+          <Card.Title className="d-flex justify-content-center">
+            <div style={{ display: "block" }}>
+              <Card.Img
+                style={{ width: 400, maxHeight: 200 }}
+                src={require("../../images/vendor.jpg")}
+                alt="avarter"
+              />
+              <div className="d-flex justify-content-center">
+                {" "}
+                Vendor Log In
+              </div>
+            </div>
           </Card.Title>
 
           <Form>
@@ -67,7 +92,7 @@ const Login = () => {
             LogIn
           </Button>
           <Card.Text style={{ float: "right" }}>
-            <Link to="/customerLogin">Sign Up</Link>
+            <Link to="/vendor/vendorSignup">Sign Up</Link>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -75,4 +100,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default useVendorLogin;

@@ -24,6 +24,7 @@ const bottomNav = () => {
                 <a style={{ color: "purple" }} href="google.com">
                   +254708453589
                 </a>
+                <br />
                 <a style={{ color: "purple" }} href="google.com">
                   Or: +254753338225
                 </a>

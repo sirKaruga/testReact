@@ -1,5 +1,5 @@
 import React from "react";
-import Example from "../chart";
+//import Example from "../chart";
 import { Col, Row, Card } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 
@@ -56,11 +56,11 @@ function home() {
       <Row>
         <Col sm="12" md="6">
           Sales Trend
-          <Example />
+          {/* <Example /> */}
         </Col>
         <Col sm="12" md="6">
           Return
-          <Example />
+          {/* <Example /> */}
         </Col>
       </Row>
 

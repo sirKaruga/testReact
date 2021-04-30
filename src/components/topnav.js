@@ -71,7 +71,7 @@ const useTopnav = () => {
             </sup>
           </i>
         </Nav.Link>
-        <Nav.Link eventKey={2} href="#memes">
+        <Nav.Link eventKey={2} href="/login">
           <i style={{ fontSize: "1.3em" }}>
             <FaSignInAlt /> <span style={{ fontSize: "0.75em" }}>Sign In</span>
           </i>

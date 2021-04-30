@@ -1,5 +1,5 @@
 import React from "react";
-import BarChart from "../barChart";
+//import BarChart from "../barChart";
 import { Col, Row, Card, Button } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 
@@ -21,7 +21,7 @@ function items() {
         <Col md="6" sm="12">
           <Card style={{ background: "rgba(0,0,0,0.6)" }}>
             Sales success Rate
-            <BarChart />
+            {/* <BarChart /> */}
           </Card>
         </Col>
         <Col md="3" sm="12">
