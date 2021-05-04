@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import windowSize from "../../components/windowSize";
 import BottomNav from "../../components/bottomNav";
 import Axios from "axios";
-import { FlagFill, Trash, Cash, Bag } from "react-bootstrap-icons";
+import { FlagFill, Cash, Bag } from "react-bootstrap-icons";
 
 export default function Vendor() {
   const [content, setcontent] = useState({
@@ -231,6 +231,7 @@ export default function Vendor() {
                           <img
                             style={{ width: "60px", height: "auto" }}
                             src={item.images[0]}
+                            alt="so"
                           />
                         </td>
                         <td>{item.name}</td>

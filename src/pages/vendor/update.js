@@ -23,8 +23,6 @@ export default function usePost(props) {
     _id: items._id,
   });
 
-  const [fl, setfl] = useState([]);
-
   //handle image change
 
   const onChange = (e) => {

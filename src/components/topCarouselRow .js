@@ -20,6 +20,7 @@ import {
 } from "react-icons/fa";
 
 export default function topCarouselRow() {
+  const caouselImgStyle = { maxHeight: "430px", with: "auto" };
   return (
     <div className="d-none d-md-inline">
       <Row>
@@ -97,13 +98,28 @@ export default function topCarouselRow() {
           <Card>
             <Carousel style={{ height: "5em" }}>
               <Carousel.Item interval={500}>
-                <img className="d-block w-100" src={mytv} alt="Third slide" />
+                <Card.Img
+                  style={caouselImgStyle}
+                  className="d-block w-100"
+                  src={mytv}
+                  alt="Third slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={500}>
-                <img className="d-block w-100" src={mytv} alt="Third slide" />
+                <img
+                  style={caouselImgStyle}
+                  className="d-block w-100"
+                  src={mytv}
+                  alt="Third slide"
+                />
               </Carousel.Item>
               <Carousel.Item>
-                <img className="d-block w-100" src={mytv} alt="Third slide" />
+                <img
+                  style={caouselImgStyle}
+                  className="d-block w-100"
+                  src={mytv}
+                  alt="Third slide"
+                />
               </Carousel.Item>
             </Carousel>
           </Card>

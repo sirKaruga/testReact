@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card, Col, Row, Button } from "react-bootstrap";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import windowSize from "../../components/windowSize";
 import BottomNav from "../../components/bottomNav";
 import { FlagFill, Trash, Cash, Bag } from "react-bootstrap-icons";
@@ -112,6 +112,7 @@ export default function useAllPosts() {
                           <img
                             style={{ width: "60px", height: "auto" }}
                             src={product.images[0]}
+                            alt="so"
                           />
                         </td>
                         <td>

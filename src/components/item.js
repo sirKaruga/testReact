@@ -3,8 +3,10 @@ import { Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addToCart } from "../store/actions/";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function item(props) {
+function useItem(props) {
+  let parameters = useParams();
   return (
     <div
       style={{
@@ -19,7 +21,7 @@ function item(props) {
           color: "black",
           textDecoration: "none",
         }}
-        to={props.toLocation}
+        to={`/more/${props.id}`}
       >
         <Card.Img
           style={{
@@ -61,4 +63,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(item);
+export default connect(mapStateToProps, mapDispatchToProps)(useItem);

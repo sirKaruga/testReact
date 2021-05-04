@@ -8,7 +8,6 @@ function rowStyle1(props) {
   const cwindow = windowSize().width;
   var display = "inline";
   var display2 = "inline";
-  var display3 = "inline";
 
   function between(x, min, max) {
     return x >= min && x <= max;
@@ -18,9 +17,6 @@ function rowStyle1(props) {
   }
   if (between(cwindow, 0, 1225)) {
     display2 = "none";
-  }
-  if (between(cwindow, 0, 774)) {
-    display3 = "none";
   }
 
   return (
