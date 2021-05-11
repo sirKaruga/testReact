@@ -4,7 +4,6 @@ import Item from "../components/item";
 import { connect } from "react-redux";
 
 function rowStyle4(props) {
-  console.log(props.returnedItem);
   return (
     <Row>
       <Col md="12" sm="12" xsm="12">

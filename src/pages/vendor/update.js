@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import windowSize from "../../components/windowSize";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
+import apiCalls from "../../components/apiCalls";
 
 export default function usePost(props) {
   const history = useHistory();
@@ -57,12 +57,7 @@ export default function usePost(props) {
     ) {
       //adding data to form data
 
-      axios({
-        method: "post",
-        url: "http://localhost:9000/updateproduct",
-        withCredentials: true,
-        data: inputs,
-      })
+      apiCalls(inputs, "/updateproduct")
         .then((response) => {
           if (response.data === "success") {
             alert("update was successful");

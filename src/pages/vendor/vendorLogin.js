@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, Button, Form, InputGroup, FormControl } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 import { Link, Redirect } from "react-router-dom";
-import axios from "axios";
+import apiCalls from "../../components/apiCalls";
 
 const useVendorLogin = () => {
   const [inputs, setInputs] = useState({
@@ -21,12 +21,7 @@ const useVendorLogin = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    axios({
-      method: "post",
-      withCredentials: true,
-      data: inputs,
-      url: "http://localhost:9000/vendorlogin",
-    }).then((res) => {
+    apiCalls(inputs, "/vendorlogin").then((res) => {
       if (res.data.message === "success") {
         sessionStorage.setItem("wasilishaVendor", inputs.user.toString());
         seterr(true);

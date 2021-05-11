@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import windowSize from "../../components/windowSize";
 import axios from "axios";
+import apiCalls from "../../components/apiCalls";
 import { Redirect } from "react-router";
 
 export default function usePost() {
@@ -166,12 +167,7 @@ export default function usePost() {
       }).then((res) => {
         inputs.images = res.data;
         // a call iside call
-        axios({
-          method: "post",
-          url: "http://localhost:9000/postproduct",
-          withCredentials: true,
-          data: inputs,
-        })
+        apiCalls(inputs, "/postproduct")
           .then((response) => {
             if (response.data.message === "success") {
               alert("Product posted successfully");

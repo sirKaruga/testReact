@@ -4,7 +4,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import windowSize from "../../components/windowSize";
 import BottomNav from "../../components/bottomNav";
 import { FlagFill, Trash, Cash, Bag } from "react-bootstrap-icons";
-import Axios from "axios";
+import apiCalls from "../../components/apiCalls";
 
 export default function useAllPosts() {
   const history = useHistory();
@@ -12,12 +12,10 @@ export default function useAllPosts() {
     products: [],
   });
   useEffect(() => {
-    Axios({
-      method: "post",
-      url: "http://localhost:9000/briefContent",
-      withCredentials: true,
-      data: { user: sessionStorage.getItem("wasilishaVendor") },
-    }).then((res) => {
+    apiCalls(
+      { user: sessionStorage.getItem("wasilishaVendor") },
+      "/briefContent"
+    ).then((res) => {
       if (res.data.items) {
         setitems({
           ...items,

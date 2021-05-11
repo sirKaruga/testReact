@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Card, Form, Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import apiCalls from "../../components/apiCalls";
 
-export default function useCustomerLogin() {
+export default function useCustomerSignup() {
   const [state, setstate] = useState({
     name: "",
     phone: "",
@@ -19,6 +20,7 @@ export default function useCustomerLogin() {
     email: "",
     password: "",
     password2: "",
+    redirect: false,
   });
 
   const onChange = (e) => {
@@ -44,7 +46,19 @@ export default function useCustomerLogin() {
       state.password !== "" &&
       state.password2 !== ""
     ) {
-      console.log(state);
+      apiCalls(state, "/customerregister").then((res) => {
+        if (res.data.message === "success") {
+          sessionStorage.setItem("wasilishaCustomer", state.phone.toString());
+          setErr({
+            ...err,
+            redirect: true,
+          });
+        } else {
+          alert(
+            "Phone you entered is already registered in the system. Use it to log in instead"
+          );
+        }
+      });
     } else {
       alert("all fields with errors have to e filled before you continue");
     }
@@ -76,6 +90,10 @@ export default function useCustomerLogin() {
       }
     }
   };
+
+  if (err.redirect === true) {
+    return <Redirect to="/" />;
+  }
   return (
     <div className="d-flex justify-content-center" style={{ float: "center" }}>
       <Card style={{ width: "40rem" }}>

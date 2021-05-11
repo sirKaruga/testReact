@@ -7,7 +7,7 @@ import Topnav from "../components/topnav";
 import windowSize from "../components/windowSize";
 import apiCalls from "../components/apiCalls";
 import { addToCart } from "../store/actions/index";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const useMore = () => {
   const [state, setstate] = useState([]);
@@ -21,6 +21,7 @@ const useMore = () => {
   });
   const [current, setcurrent] = useState("");
   let product = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     apiCalls(product, "/getproduct_by_id").then((resp) => {
@@ -36,7 +37,7 @@ const useMore = () => {
       });
     });
   }, []);
-  console.log(state);
+
   ///////
   const Photo = () => {
     return (
@@ -66,11 +67,11 @@ const useMore = () => {
   };
 
   const margin = windowSize().width > 768 ? "7em" : 0;
-
-  // add item to buy list
-  const useAddToCart = (id) => {
-    const dispatch = useDispatch();
-    dispatch(addToCart(id));
+  const mycart = useSelector((state) => state.cart);
+  const addCart = (id) => {
+    if (!mycart.includes(id)) {
+      dispatch(addToCart(id));
+    }
   };
 
   return (
@@ -174,7 +175,7 @@ const useMore = () => {
                       width: "100%",
                       backgroundColor: "orange",
                     }}
-                    onClick={useAddToCart}
+                    onClick={() => addCart(prod._id)}
                   >
                     {" "}
                     Add to Cart

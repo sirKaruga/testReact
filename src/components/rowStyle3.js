@@ -1,10 +1,10 @@
-import Axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Item from "../components/item";
 import windowSize from "../components/windowSize";
+import apiCalls from "../components/apiCalls";
 
 function useRowStyle3(props) {
   const [p1, setp1] = useState({
@@ -37,20 +37,9 @@ function useRowStyle3(props) {
     price: "",
     id: "",
   });
-  const [p6, setp6] = useState({
-    name: "",
-    image: "",
-    price: "",
-    id: "",
-  });
 
   useEffect(() => {
-    Axios({
-      method: "post",
-      url: "http://localhost:9000/getproduct_cat",
-      withCredentials: true,
-      data: { cartegory: "Tv's" },
-    }).then((res) => {
+    apiCalls({ cartegory: "Tv's" }, "/getproduct_cat").then((res) => {
       setp1({
         name: res.data.items[0].name,
         image: res.data.items[0].images[0],

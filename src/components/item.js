@@ -3,10 +3,10 @@ import { Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addToCart } from "../store/actions/";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 
 function useItem(props) {
-  let parameters = useParams();
+  //let parameters = useParams();
   return (
     <div
       style={{

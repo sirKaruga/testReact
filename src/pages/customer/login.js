@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Card, Button, Form, InputGroup, FormControl } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import apiCalls from "../../components/apiCalls";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
     user: "",
     password: "",
   });
+
+  const [err, seterr] = useState(false);
 
   const onChange = (e) => {
     e.preventDefault();
@@ -19,8 +22,21 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs);
+    apiCalls(inputs, "/customerlogin").then((res) => {
+      if (res.data.message === "success") {
+        sessionStorage.setItem("wasilishaCustomer", inputs.user.toString());
+        seterr(true);
+      } else {
+        alert(
+          "Phone and/or password you entered does not match any of our records"
+        );
+      }
+    });
   };
+
+  if (err === true) {
+    return <Redirect to="/" />;
+  }
   return (
     <div className="d-flex justify-content-center" style={{ float: "center" }}>
       <Card style={{ width: "28rem" }}>
@@ -28,7 +44,7 @@ const Login = () => {
           <Card.Title>
             <img
               style={{ height: 50 }}
-              src={require("../images/avt.jpg")}
+              src={require("../../images/avt.jpg")}
               alt="avarter"
             />
             Log In
@@ -67,7 +83,7 @@ const Login = () => {
             LogIn
           </Button>
           <Card.Text style={{ float: "right" }}>
-            <Link to="/customerLogin">Sign Up</Link>
+            <Link to="/customerSignup">Sign Up</Link>
           </Card.Text>
         </Card.Body>
       </Card>

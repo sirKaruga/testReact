@@ -57,9 +57,20 @@ const counterReducer = (state = initialStat, action) => {
       return newState;
     }
 
+    case "REMOVE_FROM_CART": {
+      let itemPos = state.cart.indexOf(action.payload);
+      state.cart.splice(itemPos, 1);
+
+      let newState = Object.assign({}, state, {
+        cart: state.cart,
+      });
+
+      return newState;
+    }
+
     case "LOG_IN": {
       let newState = {};
-      console.log(action.payload);
+      //console.log(action.payload);
       return newState;
     }
 

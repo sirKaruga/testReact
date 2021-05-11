@@ -6,10 +6,10 @@ import About from "./pages/about";
 import More from "./pages/more";
 import Register from "./pages/register";
 import Home from "./pages/home";
-import Login from "./pages/login";
+import Login from "./pages/customer/login";
 import Products from "./pages/products";
-import MyShop from "./pages/sampleShop";
-import CustomerLogin from "./pages/customerlogin";
+import Cart from "./pages/cart";
+import CustomerSignup from "./pages/customer/customersignup";
 import Vendor from "./pages/vendor/vendor";
 import Post from "./pages/vendor/post";
 import Update from "./pages/vendor/update";
@@ -26,9 +26,10 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/More/:location" component={More} />
           <Route exact path="/products/:cartegory" component={Products} />
-          <Route exact path="/customerLogin" component={CustomerLogin} />
+          <Route exact path="/customerSignup" component={CustomerSignup} />
           <Route exact path="/Register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/cart" component={Cart} />
           <Route path="/vendor">
             <Route exact strict path="/vendor/home" component={Vendor}></Route>
             <Route exact strict path="/vendor/post" component={Post}></Route>
@@ -62,9 +63,6 @@ function App() {
               path="/vendor/login"
               component={VendorLogin}
             ></Route>
-          </Route>
-          <Route path="/shop">
-            <Route exact path="/shop/buy" component={MyShop}></Route>
           </Route>
 
           {/* <Route path="/dashboard">

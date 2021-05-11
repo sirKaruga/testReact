@@ -32,6 +32,13 @@ const addToCart = (myPayload) => {
   };
 };
 
+const removeFromCart = (myPayload) => {
+  return {
+    type: "REMOVE_FROM_CART",
+    payload: myPayload,
+  };
+};
+
 const logins = (myPayload) => {
   return {
     type: "LOG_IN",
@@ -39,4 +46,12 @@ const logins = (myPayload) => {
   };
 };
 
-export { increment, changeBool, changeText, fetchedToStore, addToCart, logins };
+export {
+  increment,
+  changeBool,
+  changeText,
+  fetchedToStore,
+  addToCart,
+  logins,
+  removeFromCart,
+};

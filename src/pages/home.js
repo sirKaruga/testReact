@@ -1,20 +1,24 @@
 import React from "react";
 import Body from "../components/body";
 import windowSize from "../components/windowSize";
+import MobileHome from "../components/mobileComponents/mobileHome";
 
 export default function Home() {
-  const margin = windowSize().width > 998 ? "7em" : 0; //768
+  const margin = windowSize().width > 998 ? "7em" : null; //768
   return (
     <>
       <div
         style={{
-          minHeight: "50vh",
           marginLeft: margin,
           marginRight: margin,
-          width: windowSize().width < 998 ? "900px" : "auto",
+          //width: windowSize().width,
         }}
       >
-        <Body style={{ minWidth: "1000px", display: "inlineBlock" }} />
+        {windowSize().width >= 915 ? (
+          <Body style={{ display: "inlineBlock" }} />
+        ) : (
+          <MobileHome />
+        )}
       </div>
     </>
   );

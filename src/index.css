@@ -48,3 +48,18 @@ th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.item-container {
+  display: flex;
+  overflow-x: scroll;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.item {
+  padding: 30px;
+  margin-right: 2px;
+  background-color: coral;
+  flex-shrink: 0;
+  width: 20em;
+}

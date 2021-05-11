@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Form, Col, Button } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
-import axios from "axios";
+import apiCalls from "../../components/apiCalls";
 
 export default function useVendorLogin() {
   const [state, setstate] = useState({
@@ -46,12 +46,7 @@ export default function useVendorLogin() {
       state.password !== "" &&
       state.password2 !== ""
     ) {
-      axios({
-        method: "post",
-        withCredentials: true,
-        data: state,
-        url: "http://localhost:9000/vendorregister",
-      }).then((res) => {
+      apiCalls(state, "/vendorregister").then((res) => {
         if (res.data.message === "success") {
           sessionStorage.setItem("wasilishaVendor", state.phone.toString());
           setErr({

@@ -3,8 +3,8 @@ import { Card, Col, Row, Button } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import windowSize from "../../components/windowSize";
 import BottomNav from "../../components/bottomNav";
-import Axios from "axios";
 import { FlagFill, Cash, Bag } from "react-bootstrap-icons";
+import apiCalls from "../../components/apiCalls";
 
 export default function Vendor() {
   const [content, setcontent] = useState({
@@ -12,12 +12,10 @@ export default function Vendor() {
     items: [],
   });
   useEffect(() => {
-    Axios({
-      method: "post",
-      url: "http://localhost:9000/briefContent",
-      withCredentials: true,
-      data: { user: sessionStorage.getItem("wasilishaVendor") },
-    }).then((res) => {
+    apiCalls(
+      { user: sessionStorage.getItem("wasilishaVendor") },
+      "/briefContent"
+    ).then((res) => {
       if (res.data.items) {
         setcontent({
           ...content,
