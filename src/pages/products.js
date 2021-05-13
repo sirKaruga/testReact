@@ -3,6 +3,8 @@ import { Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import apiCalls from "../components/apiCalls";
 import Item from "../components/item";
+import TopNav from "../components/topnav";
+
 export default function useProducts() {
   const [state, setstate] = useState([]);
   let category = useParams();
@@ -14,6 +16,7 @@ export default function useProducts() {
 
   return (
     <div>
+      <TopNav />
       <Row>
         {state.map((item) => (
           <Col vsm="6" key={item._id}>

@@ -11,6 +11,7 @@ export default function Vendor() {
     redirect: false,
     items: [],
   });
+  const [vname, setvname] = useState("");
   useEffect(() => {
     apiCalls(
       { user: sessionStorage.getItem("wasilishaVendor") },
@@ -21,6 +22,15 @@ export default function Vendor() {
           ...content,
           items: res.data.items,
         });
+      }
+    });
+
+    apiCalls(
+      { user: sessionStorage.getItem("wasilishaVendor") },
+      "/find_vendor"
+    ).then((res) => {
+      if (res.data.items) {
+        setvname(res.data.items[0].name.split(" ")[0]);
       }
     });
   }, []);
@@ -41,7 +51,7 @@ export default function Vendor() {
       }}
     >
       {margin === 0 ? null : (
-        <Card style={{ height: "5rem", backgroundColor: "beige" }}></Card>
+        <Card style={{ height: "5rem", backgroundColor: "beige" }}> </Card>
       )}
       <Card style={{ backgroundColor: "red" }}>
         <span>
@@ -70,6 +80,10 @@ export default function Vendor() {
           </span>
         </span>
       </Card>
+      <Row>
+        {" "}
+        <Card.Title style={{ paddingLeft: 20 }}>Welcome {vname}</Card.Title>
+      </Row>
       <Row
         style={{
           marginLeft: 0,
@@ -84,13 +98,13 @@ export default function Vendor() {
             marginRight: 0,
             paddingLeft: 0,
             paddingRight: 0,
-            display: "flex",
+            //display: "flex",
           }}
           sm="3"
         >
           <Row
             style={{
-              display: "flex",
+              // display: "flex",
               marginLeft: 0,
               marginRight: 0,
               width: "100%",
@@ -168,7 +182,25 @@ export default function Vendor() {
               </Card>
             </Col>
           </Row>
+          <Row>
+            {" "}
+            <Card
+              style={{
+                width: "100%",
+                marginRight: "15px",
+                backgroundColor: "beige",
+              }}
+            >
+              <Card.Body>
+                <i>
+                  You have <b>power</b> to manage your products here
+                </i>
+              </Card.Body>
+            </Card>
+          </Row>
+          <br />
         </Col>
+
         <Col
           style={{
             marginLeft: 0,
@@ -187,7 +219,6 @@ export default function Vendor() {
             }}
             sm="9"
           >
-            <Card.Title>Welcome Dennis</Card.Title>
             <Card.Body
               style={{
                 marginLeft: 0,
@@ -224,7 +255,7 @@ export default function Vendor() {
                       </th>
                     </tr>
                     {content.items.map((item) => (
-                      <tr key={item.id}>
+                      <tr key={item._id}>
                         <td>
                           <img
                             style={{ width: "60px", height: "auto" }}

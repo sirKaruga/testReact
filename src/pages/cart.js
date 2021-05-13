@@ -6,7 +6,6 @@ import {
   Hash,
   ArrowLeft,
   ArrowRight,
-  ArrowDownRightSquare,
 } from "react-bootstrap-icons";
 import windowSize from "../components/windowSize";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,8 +13,10 @@ import { Button } from "react-bootstrap";
 import Topnav from "../components/topnav";
 import apiCall from "../components/apiCalls";
 import { removeFromCart } from "../store/actions/";
+import { Redirect } from "react-router";
 
 function useCart() {
+  const [tologin, settologin] = useState(false);
   const margin = windowSize().width > 998 ? "7em" : null;
   const [items, setitems] = useState({
     fetched: [],
@@ -23,6 +24,7 @@ function useCart() {
   });
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart);
+  const all = useSelector((state) => state);
 
   useEffect(() => {
     apiCall({ products: products }, "/getproduct_cart_products").then((res) => {
@@ -48,30 +50,49 @@ function useCart() {
     var itm = items.fetched.indexOf(item);
     items.fetched.splice(itm, 1);
     stateInit();
+    localStorage.removeItem("persist:root");
   };
 
+  const [ToHome, setToHome] = useState(false);
   const submitOrder = () => {
-    console.log(items.fetched);
+    const vendor = sessionStorage.getItem("wasilishaCustomer");
+    if (vendor === null) {
+      settologin(true);
+    } else {
+      apiCall(
+        { items: items.fetched, CustomerContact: vendor },
+        "/place_order"
+      ).then((res) => {
+        localStorage.removeItem("persist:root");
+        if (res.data.message) {
+          alert(
+            "Orders Placed Successfully. We will contact you soon for Confirmation"
+          );
+          setToHome(true);
+        }
+      });
+    }
   };
 
-  const [totalsArray, settotalsArray] = useState({
-    total: [],
-    fig: 0,
-    initialized: false,
-  });
   items.fetched.forEach((element) => {
     var price = parseInt(element.price.replace(/[^\d.-]/g, ""), 10);
     element.itmTotal = price * element.qty;
-    totalsArray.total.push(element.itmTotal);
-    console.log(element);
   });
 
-  // settotalsArray({
-  //   ...totalsArray,
-  //   fig: totalsArray.total.reduce((a, b) => a + b, 0),
-  // });
+  // a for amount
+  var a = 0;
+  for (let i = 0; i < items.fetched.length; i++) {
+    a = a + items.fetched[i].itmTotal;
+  }
 
-  console.log(totalsArray.total.reduce((a, b) => a + b, 0));
+  if (tologin === true) {
+    return <Redirect to="/login" />;
+  }
+
+  if (ToHome === true) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <div
       style={{
@@ -97,7 +118,7 @@ function useCart() {
             </th>
           </tr>
           {items.fetched.map((item) => (
-            <tr>
+            <tr key={item._id}>
               <td>
                 <img
                   style={{ height: "50px", width: "auto" }}
@@ -152,24 +173,22 @@ function useCart() {
           ))}
           {products.length > 0 ? (
             <tr>
-              <td>
-                <i>Shipping fees</i>
-              </td>
-              <td></td>
-              <td>
-                <i>ksh. 200</i>
-              </td>
-              <td></td>
+              <td>.</td>
             </tr>
           ) : null}
           {products.length > 0 ? (
             <tr>
               <td>
-                <b>Total</b>
+                <span style={{ fontSize: 20 }}>
+                  {" "}
+                  <b>Total</b>
+                </span>
               </td>
               <td></td>
               <td style={{ fontSize: "normal", borderLeft: "1px solid white" }}>
-                <b>ksh. {"600"}</b>
+                <span style={{ fontSize: 20 }}>
+                  <b>ksh. {a}</b>
+                </span>
               </td>
               <td></td>
             </tr>
@@ -185,6 +204,38 @@ function useCart() {
           )}
         </tbody>
       </table>
+      <br />
+      {products.length > 0 ? (
+        <div>
+          <span style={{ fontSize: 18 }}>
+            <b>
+              <i>Shipping Fees</i>
+            </b>
+          </span>
+          <span
+            className="d-flex justify-content-center"
+            style={{ fontSize: 18, float: "center" }}
+          >
+            <b>200</b>
+          </span>
+        </div>
+      ) : null}
+      <br />
+      {products.length > 0 ? (
+        <div style={{ backgroundColor: "beige" }}>
+          <span style={{ fontSize: 24 }}>
+            <b>
+              <i>Grand Total</i>
+            </b>
+          </span>
+          <span
+            className="d-flex justify-content-center"
+            style={{ fontSize: 24, float: "center" }}
+          >
+            <b> Ksh. {a + 200}</b>
+          </span>
+        </div>
+      ) : null}
       <br />
       {products.length > 0 ? (
         <span style={{ float: "right" }}>

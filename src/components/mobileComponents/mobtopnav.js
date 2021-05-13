@@ -11,8 +11,16 @@ import { FaSignInAlt, FaCartPlus, FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import apiCalls from "../apiCalls";
 import windowSize from "../windowSize";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 const useMobileTopnav = () => {
+  let history = useHistory();
+  const location = useLocation();
+
+  const [searchV, setsearchV] = useState({
+    v: "",
+    searching: false,
+  });
   const [search, setsearch] = useState(false);
   const [cName, setcName] = useState("");
   const cartSize = useSelector((state) => state.cart.length);
@@ -28,6 +36,22 @@ const useMobileTopnav = () => {
       : setcName("");
   }, []);
 
+  async function useSearch() {
+    if (searchV.v !== "") {
+      if (location.pathname === "/searchResults") {
+        history.push({
+          pathname: "/rerouter",
+          searchResults: searchV.v,
+        });
+      } else {
+        history.push({
+          pathname: "/searchResults",
+          searchResults: searchV.v,
+        });
+      }
+    }
+  }
+
   return (
     <Navbar
       style={{
@@ -38,10 +62,12 @@ const useMobileTopnav = () => {
         position: "sticky",
         top: 0,
         zIndex: 1,
+        maxWidth: "100vw",
+        overflow: "hidden",
         width: windowSize().width,
+        paddingTop: 30,
       }}
     >
-      {/* <Navbar.Brand href="/home"> */}
       <img
         style={{
           height: "auto",
@@ -72,9 +98,15 @@ const useMobileTopnav = () => {
               placeholder="Search Products..."
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
+              value={searchV.v}
+              onChange={(e) => setsearchV({ ...searchV, v: e.target.value })}
             />
             <InputGroup.Append>
-              <Button style={{ color: "black" }} variant="outline-secondary">
+              <Button
+                onClick={useSearch}
+                style={{ color: "black" }}
+                variant="outline-secondary"
+              >
                 <FaSearch />
               </Button>
             </InputGroup.Append>
@@ -83,22 +115,24 @@ const useMobileTopnav = () => {
       )}
       <Nav className="mr-auto"></Nav>
       <Nav>
-        <Nav.Link href="#deets">
-          <i style={{ fontSize: "1.3em" }}>
-            <FaCartPlus style={{ color: "red" }} />
+        <Link style={{ paddingTop: "13px", textDecoration: "none" }} to="/cart">
+          <Nav.Item>
+            <i style={{ fontSize: "1.3em" }}>
+              <FaCartPlus style={{ color: "red" }} />
 
-            <sup
-              style={{
-                fontSize: "0.9em",
-                color: "blue",
-                borderRadius: "60%",
-                minWidth: "1em",
-              }}
-            >
-              <b>{cartSize}</b>
-            </sup>
-          </i>
-        </Nav.Link>
+              <sup
+                style={{
+                  fontSize: "0.9em",
+                  color: "blue",
+                  borderRadius: "60%",
+                  minWidth: "1em",
+                }}
+              >
+                <b>{cartSize}</b>
+              </sup>
+            </i>
+          </Nav.Item>
+        </Link>
         {search === false ? (
           <>
             {cName === "" ? (

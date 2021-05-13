@@ -17,6 +17,8 @@ import VendorLogin from "./pages/vendor/vendorLogin";
 import VendorSignup from "./pages/vendor/vendorSignup";
 import AllPosts from "./pages/vendor/allposts";
 import Policy from "./pages/vendor/policy";
+import Rerouter from "./pages/rerouter";
+import SearchResults from "./pages/searchResults";
 function App() {
   return (
     <div>
@@ -24,6 +26,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/rerouter" component={Rerouter} />
+          <Route exact path="/searchResults" component={SearchResults} />
           <Route exact path="/More/:location" component={More} />
           <Route exact path="/products/:cartegory" component={Products} />
           <Route exact path="/customerSignup" component={CustomerSignup} />

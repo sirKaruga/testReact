@@ -4,8 +4,6 @@ import Item from "../components/catItem";
 import { connect } from "react-redux";
 
 function rowStyle2(props) {
-  console.log(props);
-
   return (
     <>
       <Row style={{ overflow: "hidden" }}>
@@ -58,7 +56,7 @@ function rowStyle2(props) {
                     marginRight: 0,
                     marginLeft: 0,
                   }}
-                  toLocation={"/products/phones"}
+                  toLocation={"/products/Phones"}
                   id={"Phones"}
                   itemName={"Phones"}
                   itemPicture={require("../images/phone.jpg")}
@@ -83,7 +81,7 @@ function rowStyle2(props) {
                     marginRight: 0,
                     marginLeft: 0,
                   }}
-                  toLocation={"/products/computers"}
+                  toLocation={"/products/Computers"}
                   id={"Compters"}
                   itemName={"Compters"}
                   itemPicture={require("../images/comp.jpg")}
@@ -138,7 +136,7 @@ function rowStyle2(props) {
                   id={"Accessories"}
                   itemName={"Accessories"}
                   itemPicture={require("../images/accessories.jpg")}
-                  toLocation={"/products/accessories"}
+                  toLocation={"/products/Accessories"}
                 />
               </Col>
             </Row>
@@ -176,7 +174,7 @@ function rowStyle2(props) {
                   id={"Furniture"}
                   itemName={"Furniture"}
                   itemPicture={require("../images/fnt.jpeg")}
-                  toLocation={"/products/furniture"}
+                  toLocation={"/products/Furniture"}
                 />
               </Col>
 
@@ -201,7 +199,7 @@ function rowStyle2(props) {
                   id={"Others"}
                   itemName={"Others"}
                   itemPicture={require("../images/otr.png")}
-                  toLocation={"/products/others"}
+                  toLocation={"/products/Others"}
                 />
               </Col>
             </Row>

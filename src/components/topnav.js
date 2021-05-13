@@ -12,9 +12,16 @@ import { useSelector } from "react-redux";
 import apiCalls from "./apiCalls";
 import MobileTop from "./mobileComponents/mobtopnav";
 import windowSize from "./windowSize";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
-const useTopnav = () => {
+const useTopnav = (params) => {
+  let history = useHistory();
+  const location = useLocation();
+
+  const [searchV, setsearchV] = useState({
+    v: "",
+    searching: false,
+  });
   const [cName, setcName] = useState("");
   const cartSize = useSelector((state) => state.cart.length);
   var customer;
@@ -28,6 +35,22 @@ const useTopnav = () => {
         })
       : setcName("");
   }, []);
+
+  async function useSearch() {
+    if (searchV.v !== "") {
+      if (location.pathname === "/searchResults") {
+        history.push({
+          pathname: "/rerouter",
+          searchResults: searchV.v,
+        });
+      } else {
+        history.push({
+          pathname: "/searchResults",
+          searchResults: searchV.v,
+        });
+      }
+    }
+  }
 
   if (windowSize().width <= 915) {
     return <MobileTop />;
@@ -44,7 +67,6 @@ const useTopnav = () => {
           zIndex: 1,
         }}
       >
-        {/* <Navbar.Brand href="/home"> */}
         <img
           style={{
             height: "auto",
@@ -55,7 +77,7 @@ const useTopnav = () => {
           src={require("../images/sa.png")}
           alt="img"
         />
-        {/* </Navbar.Brand> */}
+
         <Form inline style={{ paddingTop: "1.5em", float: "right" }}>
           <InputGroup className="mb-3">
             <FormControl
@@ -63,9 +85,15 @@ const useTopnav = () => {
               placeholder="Search Products, Brands.."
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
+              value={searchV.v}
+              onChange={(e) => setsearchV({ ...searchV, v: e.target.value })}
             />
             <InputGroup.Append>
-              <Button style={{ color: "black" }} variant="outline-secondary">
+              <Button
+                onClick={useSearch}
+                style={{ color: "black" }}
+                variant="outline-secondary"
+              >
                 Search
               </Button>
             </InputGroup.Append>
