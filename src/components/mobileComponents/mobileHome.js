@@ -47,7 +47,11 @@ export default function useMobileHome() {
       >
         <div className="item-container">
           {items.fetched.map((item) => (
-            <Card key={item._id} className="item">
+            <Card
+              key={item._id}
+              className="item"
+              style={{ backgroundColor: "white" }}
+            >
               <Item
                 id={item._id}
                 itemName={item.name}
