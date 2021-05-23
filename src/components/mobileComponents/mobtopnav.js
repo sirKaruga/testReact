@@ -33,7 +33,7 @@ const useMobileTopnav = () => {
       ? apiCalls({ phone: customer }, "/find_customer").then((res) => {
           setcName(res.data.items[0].name.split(" ")[0]);
         })
-      : setcName("");
+      : setcName(""); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function useSearch() {
@@ -65,7 +65,7 @@ const useMobileTopnav = () => {
         maxWidth: "100vw",
         overflow: "hidden",
         width: windowSize().width,
-        paddingTop: 30,
+        paddingTop: 10,
       }}
     >
       <img

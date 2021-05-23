@@ -32,7 +32,7 @@ export default function Vendor() {
       if (res.data.items) {
         setvname(res.data.items[0].name.split(" ")[0]);
       }
-    });
+    }); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const margin = windowSize().width > 768 ? "7em" : 0;

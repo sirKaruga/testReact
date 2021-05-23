@@ -21,7 +21,7 @@ export default function useSearchResults(params) {
           products: res.data.items,
         });
       }
-    });
+    }); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (data.products.length < 1) {

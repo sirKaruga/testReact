@@ -22,7 +22,7 @@ export default function useAllPosts() {
           products: res.data.items,
         });
       }
-    });
+    }); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const margin = windowSize().width > 768 ? "7em" : 0;
   if (!sessionStorage.getItem("wasilishaVendor")) {

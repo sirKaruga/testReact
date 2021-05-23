@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default function apiCalls(data, route) {
   return axios({
-    url: `http://localhost:9000${route}`,
+    url: `https://wasilisha.herokuapp.com${route}`,
     method: "post",
     withCredentials: true,
     data: data,

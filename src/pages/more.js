@@ -8,6 +8,7 @@ import windowSize from "../components/windowSize";
 import apiCalls from "../components/apiCalls";
 import { addToCart } from "../store/actions/index";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../images/loader.gif";
 
 const useMore = () => {
   const [state, setstate] = useState([]);
@@ -22,6 +23,7 @@ const useMore = () => {
   const [current, setcurrent] = useState("");
   let product = useParams();
   const dispatch = useDispatch();
+  var location = product.location;
 
   useEffect(() => {
     apiCalls(product, "/getproduct_by_id").then((resp) => {
@@ -35,8 +37,8 @@ const useMore = () => {
         img5: resp.data.items[0].images[4],
         img6: resp.data.items[0].images[5],
       });
-    });
-  }, []);
+    }); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   ///////
   const Photo = () => {
@@ -77,6 +79,7 @@ const useMore = () => {
   return (
     <div style={{ marginRight: margin, marginLeft: margin }}>
       <Topnav />
+      {state.length < 1 ? <img src={Loader} alt="Loading..." /> : null}
       <br />
       {state.map((prod) => (
         <div key={prod._id}>

@@ -38,7 +38,6 @@ export default function usePost() {
   const [inputs, setinputs] = useState({
     name: "",
     price: "",
-    cartegory: "",
     description: "",
     cartegory: "Phones",
     phone: wasilishaUser,

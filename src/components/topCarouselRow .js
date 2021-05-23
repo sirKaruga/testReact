@@ -1,6 +1,8 @@
 import React from "react";
 import { Row, Col, Carousel, Card } from "react-bootstrap";
 import mytv from "../images/tv1.jpg";
+import comptr from "../images/resized2.jpg";
+import ptop from "../images/ptope.jpg";
 import {
   Star,
   Heart,
@@ -96,7 +98,11 @@ export default function topCarouselRow() {
 
         <Col sm="12" md="6">
           <Card>
-            <Carousel style={{ height: "5em" }}>
+            <Carousel
+              controls={false}
+              indicators={false}
+              style={{ height: "5em" }}
+            >
               <Carousel.Item interval={500}>
                 <Card.Img
                   style={caouselImgStyle}
@@ -109,7 +115,7 @@ export default function topCarouselRow() {
                 <img
                   style={caouselImgStyle}
                   className="d-block w-100"
-                  src={mytv}
+                  src={comptr}
                   alt="Third slide"
                 />
               </Carousel.Item>
@@ -117,7 +123,7 @@ export default function topCarouselRow() {
                 <img
                   style={caouselImgStyle}
                   className="d-block w-100"
-                  src={mytv}
+                  src={ptop}
                   alt="Third slide"
                 />
               </Carousel.Item>

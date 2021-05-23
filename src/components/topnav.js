@@ -13,6 +13,7 @@ import apiCalls from "./apiCalls";
 import MobileTop from "./mobileComponents/mobtopnav";
 import windowSize from "./windowSize";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import Logo from "../images/sa.png";
 
 const useTopnav = (params) => {
   let history = useHistory();
@@ -33,7 +34,7 @@ const useTopnav = (params) => {
       ? apiCalls({ phone: customer }, "/find_customer").then((res) => {
           setcName(res.data.items[0].name.split(" ")[0]);
         })
-      : setcName("");
+      : setcName(""); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function useSearch() {
@@ -74,7 +75,7 @@ const useTopnav = (params) => {
             float: "left",
             paddingRight: "20px",
           }}
-          src={require("../images/sa.png")}
+          src={Logo}
           alt="img"
         />
 

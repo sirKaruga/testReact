@@ -11,7 +11,7 @@ export default function useProducts() {
   useEffect(() => {
     apiCalls(category, "/getproduct_cat").then((resp) => {
       setstate(resp.data.items);
-    });
+    }); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -24,7 +24,7 @@ function useCart() {
   });
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart);
-  const all = useSelector((state) => state);
+  //const all = useSelector((state) => state);
 
   useEffect(() => {
     apiCall({ products: products }, "/getproduct_cart_products").then((res) => {

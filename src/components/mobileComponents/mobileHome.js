@@ -7,7 +7,18 @@ import BottomNav from "../bottomNav";
 import Topnav from "../topnav";
 import Item from "../item";
 import apiCalls from "../apiCalls";
+import { Link } from "react-router-dom";
 
+function Btn() {
+  return (
+    <div
+      style={{ backgroundColor: "orange", borderBottom: "1px solid red" }}
+      className="d-flex justify-content-end"
+    >
+      <Link to="/vendor/post">Sell Your product Here</Link>
+    </div>
+  );
+}
 export default function useMobileHome() {
   const [items, setitems] = useState({
     fetched: [],
@@ -18,11 +29,12 @@ export default function useMobileHome() {
         ...items,
         fetched: res.data.items.slice(0, 6),
       });
-    });
+    }); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
+      <Btn />
       <Topnav />
       <div
         style={{
