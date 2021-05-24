@@ -3,6 +3,7 @@ import TopNav from "../components/topnav";
 import Item from "../components/item";
 import { Row, Col } from "react-bootstrap";
 import apiCalls from "../components/apiCalls";
+import Loader from "../images/loader.gif";
 
 export default function useSearchResults(params) {
   const historyValue = params.location.searchResults
@@ -10,6 +11,8 @@ export default function useSearchResults(params) {
     : "";
   const [data, setdata] = useState({
     products: [],
+    found: "",
+    unfound: [],
   });
   console.log(params.location.pathname);
 
@@ -18,13 +21,31 @@ export default function useSearchResults(params) {
       if (res.data.items) {
         setdata({
           ...data,
+          found: true,
           products: res.data.items,
+        });
+      } else {
+        setdata({
+          ...data,
+          unfound: res.data,
+          found: false,
         });
       }
     }); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (data.products.length < 1) {
+  if (data.found === "") {
+    return (
+      <div>
+        <TopNav />
+        <span className="d-flex justify-content-center">
+          <img src={Loader} />
+        </span>
+      </div>
+    );
+  }
+
+  if (data.unfound.message) {
     return (
       <div>
         <TopNav />
