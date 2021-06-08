@@ -204,7 +204,7 @@ export default function usePost() {
         src={require("../../images/loader.gif")}
       />
     );
-  } else {
+  } 
     return (
       <Card style={{ marginRight: margin, marginLeft: margin }}>
         <Card.Title>Create add</Card.Title>
@@ -352,5 +352,5 @@ export default function usePost() {
         </Card.Body>
       </Card>
     );
-  }
+ 
 }
