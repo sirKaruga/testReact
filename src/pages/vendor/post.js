@@ -185,7 +185,7 @@ export default function usePost() {
           });
         // a call iside call end
       });
-      setloader(false);
+      //setloader(false);
     } else {
       alert("All fields marked with * have to be filled to continue");
     }
