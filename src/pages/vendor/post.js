@@ -170,7 +170,7 @@ export default function usePost() {
         // a call iside call
         apiCalls(inputs, "/postproduct")
           .then((response) => {
-            //setloader(false);
+            setloader(false);
             if (response.data.message === "success") {
               alert("Product posted successfully");
               setloader(false);
