@@ -172,7 +172,7 @@ export default function usePost() {
           .then((response) => {
             setloader(false);
             if (response.data.message === "success") {
-              alert("Product posted successfully");
+//               alert("Product posted successfully");
               setloader(false);
               seterr({
                 ...err,
@@ -185,6 +185,7 @@ export default function usePost() {
           });
         // a call iside call end
       });
+      setloader(false);
     } else {
       alert("All fields marked with * have to be filled to continue");
     }
