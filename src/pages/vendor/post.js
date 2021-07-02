@@ -159,7 +159,7 @@ export default function usePost() {
 
       axios({
         method: "post",
-        url: "http://goodmail.wasilisha.com/",
+        url: "https://goodmail.wasilisha.com/",
         // withCredentials: true,
         data: data,
         headers: {
