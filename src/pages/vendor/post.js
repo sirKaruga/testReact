@@ -173,7 +173,7 @@ export default function usePost() {
           .then((response) => {
             setloader(false);
             if (response.data.message === "success") {
-//               alert("Product posted successfully");
+              //               alert("Product posted successfully");
               setloader(false);
               seterr({
                 ...err,
@@ -206,153 +206,152 @@ export default function usePost() {
         src={require("../../images/loader.gif")}
       />
     );
-  } 
-    return (
-      <Card style={{ marginRight: margin, marginLeft: margin }}>
-        <Card.Title>Create add</Card.Title>
-        <Card.Body>
-          <Form>
-            <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>
-                Product Name <span style={{ color: "red" }}>*</span>
-              </Form.Label>
-              <Form.Control
-                name="name"
-                value={inputs.name}
-                onChange={onChange}
-                onBlur={onEndEdit}
-                type="text"
-                placeholder="enter product name"
-              />
-              <Form.Text style={{ color: "red" }}>{err.name}</Form.Text>
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>
-                Price in ksh.<span style={{ color: "red" }}>*</span>
-              </Form.Label>
-              <Form.Control
-                name="price"
-                value={inputs.price}
-                onChange={onChange}
-                onBlur={onEndEdit}
-                type="text"
-                placeholder="e.g. 3000"
-              />
-              <Form.Text style={{ color: "red" }}>{err.price}</Form.Text>
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>
-                Category<span style={{ color: "red" }}>*</span>
-              </Form.Label>
-              <Form.Control
-                onChange={onChange}
-                value={inputs.cartegory}
-                name="cartegory"
-                as="select"
-              >
-                <option>Phones</option>
-                <option>Computers</option>
-                <option>Tv's</option>
-                <option>Accessories</option>
-                <option>Furniture</option>
-                <option>Others</option>
-              </Form.Control>
-            </Form.Group>
+  }
+  return (
+    <Card style={{ marginRight: margin, marginLeft: margin }}>
+      <Card.Title>Create add</Card.Title>
+      <Card.Body>
+        <Form>
+          <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Label>
+              Product Name <span style={{ color: "red" }}>*</span>
+            </Form.Label>
+            <Form.Control
+              name="name"
+              value={inputs.name}
+              onChange={onChange}
+              onBlur={onEndEdit}
+              type="text"
+              placeholder="enter product name"
+            />
+            <Form.Text style={{ color: "red" }}>{err.name}</Form.Text>
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Label>
+              Price in ksh.<span style={{ color: "red" }}>*</span>
+            </Form.Label>
+            <Form.Control
+              name="price"
+              value={inputs.price}
+              onChange={onChange}
+              onBlur={onEndEdit}
+              type="text"
+              placeholder="e.g. 3000"
+            />
+            <Form.Text style={{ color: "red" }}>{err.price}</Form.Text>
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>
+              Category<span style={{ color: "red" }}>*</span>
+            </Form.Label>
+            <Form.Control
+              onChange={onChange}
+              value={inputs.cartegory}
+              name="cartegory"
+              as="select"
+            >
+              <option>Phones</option>
+              <option>Computers</option>
+              <option>Tv's</option>
+              <option>Accessories</option>
+              <option>Furniture</option>
+              <option>Others</option>
+            </Form.Control>
+          </Form.Group>
 
-            <Form.Group controlId="exampleForm.ControlTextarea1">
-              <Form.Label>
-                Description<span style={{ color: "red" }}>*</span>
-              </Form.Label>
-              <Form.Control
-                placeholder="Details of your item"
-                as="textarea"
-                rows={3}
-                name="description"
-                value={inputs.description}
-                onChange={onChange}
-                onBlur={onEndEdit}
-              />
-              <Form.Text style={{ color: "red" }}>{err.description}</Form.Text>
-            </Form.Group>
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>
+              Description<span style={{ color: "red" }}>*</span>
+            </Form.Label>
+            <Form.Control
+              placeholder="Details of your item"
+              as="textarea"
+              rows={3}
+              name="description"
+              value={inputs.description}
+              onChange={onChange}
+              onBlur={onEndEdit}
+            />
+            <Form.Text style={{ color: "red" }}>{err.description}</Form.Text>
+          </Form.Group>
 
-            <Form.Group>
-              <Form.Label>
-                Images<span style={{ color: "red" }}>*</span>
-              </Form.Label>
-              <br />
-              <label
-                htmlFor="filePicker"
+          <Form.Group>
+            <Form.Label>
+              Images<span style={{ color: "red" }}>*</span>
+            </Form.Label>
+            <br />
+            <label
+              htmlFor="filePicker"
+              style={{
+                background: "blue",
+                color: "white",
+                padding: "5px 10px",
+              }}
+            >
+              {files.img1 === null
+                ? "Choose Images for your item"
+                : "Click me to add another Image!"}
+            </label>
+            <input
+              style={{ visibility: "hidden" }}
+              id="filePicker"
+              type={"file"}
+              name="files"
+              multiple
+              onChange={handleChange}
+            />
+            {files.img2 === null ? (
+              <Form.Text style={{ color: "red" }}>{err.img}</Form.Text>
+            ) : null}
+
+            <div>
+              <img
                 style={{
-                  background: "blue",
-                  color: "white",
-                  padding: "5px 10px",
+                  height: files.img1 !== null ? "100px" : "0px",
+                  width: "auto",
                 }}
-              >
-                {files.img1 === null
-                  ? "Choose Images for your item"
-                  : "Click me to add another Image!"}
-              </label>
-              <input
-                style={{ visibility: "hidden" }}
-                id="filePicker"
-                type={"file"}
-                name="files"
-                multiple
-                onChange={handleChange}
+                src={tempUrls.img1}
               />
-              {files.img2 === null ? (
-                <Form.Text style={{ color: "red" }}>{err.img}</Form.Text>
-              ) : null}
-
-              <div>
-                <img
-                  style={{
-                    height: files.img1 !== null ? "100px" : "0px",
-                    width: "auto",
-                  }}
-                  src={tempUrls.img1}
-                />
-                <img
-                  style={{
-                    height: files.img2 !== null ? "100px" : "0px",
-                    width: "auto",
-                  }}
-                  src={tempUrls.img2}
-                />
-                <img
-                  style={{
-                    height: files.img3 !== null ? "100px" : "0px",
-                    width: "auto",
-                  }}
-                  src={tempUrls.img3}
-                />
-                <img
-                  style={{
-                    height: files.img4 !== null ? "100px" : "0px",
-                    width: "auto",
-                  }}
-                  src={tempUrls.img4}
-                />
-                <img
-                  style={{
-                    height: files.img5 !== null ? "100px" : "0px",
-                    width: "auto",
-                  }}
-                  src={tempUrls.img5}
-                />
-                <img
-                  style={{
-                    height: files.img6 !== null ? "100px" : "0px",
-                    width: "auto",
-                  }}
-                  src={tempUrls.img6}
-                />
-              </div>
-            </Form.Group>
-            <Button onClick={submit}> Upload Product</Button>
-          </Form>
-        </Card.Body>
-      </Card>
-    );
- 
+              <img
+                style={{
+                  height: files.img2 !== null ? "100px" : "0px",
+                  width: "auto",
+                }}
+                src={tempUrls.img2}
+              />
+              <img
+                style={{
+                  height: files.img3 !== null ? "100px" : "0px",
+                  width: "auto",
+                }}
+                src={tempUrls.img3}
+              />
+              <img
+                style={{
+                  height: files.img4 !== null ? "100px" : "0px",
+                  width: "auto",
+                }}
+                src={tempUrls.img4}
+              />
+              <img
+                style={{
+                  height: files.img5 !== null ? "100px" : "0px",
+                  width: "auto",
+                }}
+                src={tempUrls.img5}
+              />
+              <img
+                style={{
+                  height: files.img6 !== null ? "100px" : "0px",
+                  width: "auto",
+                }}
+                src={tempUrls.img6}
+              />
+            </div>
+          </Form.Group>
+          <Button onClick={submit}> Upload Product</Button>
+        </Form>
+      </Card.Body>
+    </Card>
+  );
 }
