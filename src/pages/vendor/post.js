@@ -166,6 +166,7 @@ export default function usePost() {
           "content-type": "multipart/form-data",
         },
       }).then((res) => {
+        console.log("images posted");
         inputs.images = res.data;
         // a call iside call
         apiCalls(inputs, "/postproduct")
