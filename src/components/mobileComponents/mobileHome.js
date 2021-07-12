@@ -5,7 +5,7 @@ import RowStyle3 from "../rowStyle3";
 import RowStyle1 from "../rowStyle1";
 import BottomNav from "../bottomNav";
 import Topnav from "../topnav";
-import Item from "../item";
+import Item from "./mobitm";
 import apiCalls from "../apiCalls";
 import { Link } from "react-router-dom";
 
@@ -48,6 +48,11 @@ export default function useMobileHome() {
         <div className="item-container">
           {items.fetched.map((item) => (
             <Card
+              style={{
+                padding: 0,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
               key={item._id}
               className="item"
               style={{ backgroundColor: "white" }}

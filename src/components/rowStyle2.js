@@ -28,7 +28,15 @@ function rowStyle2(props) {
         </Col>
       </Row>
       <Row style={{ overflow: "hidden" }}>
-        <Col style={{ paddingRight: 0, marginRight: 0, marginLeft: 0 }} vsm="2">
+        <Col
+          style={{
+            paddingLeft: 0,
+            paddingRight: 0,
+            marginRight: 0,
+            marginLeft: 0,
+          }}
+          vsm="2"
+        >
           <Card
             style={{
               paddingLeft: 0,
@@ -90,7 +98,15 @@ function rowStyle2(props) {
             </Row>
           </Card>
         </Col>
-        <Col style={{ paddingRight: 0, marginRight: 0, marginLeft: 0 }} vsm="2">
+        <Col
+          style={{
+            paddingLeft: 0,
+            paddingRight: 0,
+            marginRight: 0,
+            marginLeft: 0,
+          }}
+          vsm="2"
+        >
           <Card
             style={{
               paddingLeft: 0,
@@ -143,7 +159,15 @@ function rowStyle2(props) {
           </Card>
         </Col>
 
-        <Col vsm="2" style={{ marginRight: 0, marginLeft: 0 }}>
+        <Col
+          vsm="2"
+          style={{
+            paddingLeft: 0,
+            paddingRight: 0,
+            marginRight: 0,
+            marginLeft: 0,
+          }}
+        >
           <Card
             style={{
               paddingLeft: 0,
